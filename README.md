@@ -1,4 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NACTURA - Premium Spices & Dryfruits
+
+A luxury e-commerce landing page and catalog for **NACTURA Spices & Dryfruits**. 
+Sourced from the plantations of Idukki, Kerala, this website reflects the premium, cinematic, and pure essence of the brand.
+
+## Features
+
+- **Luxury Aesthetic**: Dark emerald green and metallic gold theme.
+- **Cinematic Animations**: Smooth scrolling and reveal animations powered by Lenis and Framer Motion.
+- **Premium Components**: Include custom hero section, product highlights, founder message, and WhatsApp checkout integration.
+- **Responsive Design**: Tailored experiences for mobile, tablet, and desktop devices.
+- **Next.js**: Built with the powerful Next.js App Router for optimal performance.
+- **Tailwind CSS v4**: Beautiful, maintainable, and highly customizable styles.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (React)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & [Lenis](https://lenis.studiofreight.com/) Smooth Scroll
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/) & [Lucide](https://lucide.dev/)
 
 ## Getting Started
 
@@ -15,22 +34,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
