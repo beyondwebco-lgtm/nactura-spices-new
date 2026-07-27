@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-bg: #050505;
-  --color-brand-secondary: #0F1C14;
-  --color-brand-gold: #C89B3C;
-  --color-brand-gold-light: #E8C777;
-  --color-brand-white: #F5F5F5;
+  --color-brand-bg: #FFFFFF;
+  --color-brand-secondary: #0A321E;
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-light: #F4C430;
+  --color-brand-white: #FFFFFF;
+  --color-brand-gray: #FAFAFA;
   
-  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-cinzel), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 :root {
-  --background: #050505;
-  --foreground: #F5F5F5;
+  --background: #FFFFFF;
+  --foreground: #0A321E;
 }
 
 body {
@@ -34,38 +35,38 @@ h1, h2, h3, h4, h5, h6 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505; 
+  background: #FAFAFA; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #C89B3C; 
+  background: #D4AF37; 
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E8C777; 
+  background: #F4C430; 
 }
 
 /* Utility classes for luxury effects */
 .text-gradient-gold {
-  background: linear-gradient(to right, #C89B3C, #E8C777, #C89B3C);
+  background: linear-gradient(to right, #D4AF37, #F4C430, #D4AF37);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glass-panel {
-  background: rgba(15, 28, 20, 0.4);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
 .gold-glow {
-  box-shadow: 0 0 20px rgba(200, 155, 60, 0.15);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .hover-gold-glow:hover {
-  box-shadow: 0 0 30px rgba(200, 155, 60, 0.3);
-  border-color: rgba(200, 155, 60, 0.5);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  border-color: rgba(212, 175, 55, 0.6);
 }
 
 /* Animations */
@@ -88,9 +89,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulse-gold {
-  0% { box-shadow: 0 0 0 0 rgba(200, 155, 60, 0.4); }
-  70% { box-shadow: 0 0 0 15px rgba(200, 155, 60, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(200, 155, 60, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 .animate-pulse-gold {
   animation: pulse-gold 2s infinite;

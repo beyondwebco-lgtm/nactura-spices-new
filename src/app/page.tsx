@@ -19,6 +19,8 @@ const MeeshoSection = dynamic(() => import("@/components/MeeshoSection"), { ssr:
 const ContactSection = dynamic(() => import("@/components/ContactSection"), { ssr: true });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"), { ssr: false });
+const ComboOffers = dynamic(() => import("@/components/ComboOffers"), { ssr: true });
+const NacturaTeaSection = dynamic(() => import("@/components/NacturaTeaSection"), { ssr: true });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,13 +48,15 @@ export default function Home() {
   return (
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <main className="min-h-screen bg-brand-bg text-brand-white selection:bg-brand-gold/30 selection:text-brand-gold-light">
+      <main className="min-h-screen bg-brand-bg text-brand-secondary selection:bg-brand-gold/30 selection:text-brand-gold-light">
         <Navbar />
         <HeroSection />
         <AboutSection />
         <ProductCategories />
+        <ComboOffers />
         <FeaturedSection />
         <IndividualSpices />
+        <NacturaTeaSection />
         <WhyChooseUs />
         <FounderSection />
         <Testimonials />

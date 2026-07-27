@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,9 +8,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const cinzel = Cinzel({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-cinzel",
   display: "swap",
 });
 
@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
-      <body suppressHydrationWarning className="antialiased bg-brand-bg text-brand-white">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${cinzel.variable}`}>
+      <body suppressHydrationWarning className="antialiased bg-brand-bg text-brand-secondary">
         {children}
       </body>
     </html>

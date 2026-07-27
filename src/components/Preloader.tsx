@@ -39,10 +39,10 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
         <motion.div
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050505] overflow-hidden"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FAFAFA] overflow-hidden"
         >
           {/* Subtle background golden glow & particles */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(200,155,60,0.08)_0%,rgba(5,5,5,1)_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,rgba(250,250,250,1)_70%)] pointer-events-none" />
           
           {/* Floating sparks (Next Image optimized) */}
           <div className="absolute inset-0 opacity-[0.02] mix-blend-screen pointer-events-none blur-[4px]">
@@ -63,7 +63,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
                 cx="50%"
                 cy="50%"
                 r="46%"
-                stroke="rgba(200, 155, 60, 0.1)"
+                stroke="rgba(212, 175, 55, 0.1)"
                 strokeWidth="1.5"
                 fill="transparent"
               />
@@ -71,14 +71,14 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
                 cx="50%"
                 cy="50%"
                 r="46%"
-                stroke="#C89B3C"
+                stroke="#D4AF37"
                 strokeWidth="1.5"
                 fill="transparent"
                 strokeDasharray="290"
                 strokeDashoffset={290 - (290 * progress) / 100}
                 className="transition-all duration-75 ease-out"
                 style={{
-                  filter: "drop-shadow(0px 0px 8px rgba(200, 155, 60, 0.5))"
+                  filter: "drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.5))"
                 }}
               />
             </svg>
@@ -94,7 +94,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden"
             >
               <img
-                src="/images/logo_preload.webp"
+                src="/images/logo.png"
                 alt="Nactura Preloader"
                 className="object-cover w-full h-full"
                 loading="eager"
@@ -108,10 +108,10 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             animate={{ opacity: 1 }}
             className="mt-8 flex flex-col items-center gap-1"
           >
-            <span className="font-serif text-3xl font-light tracking-[0.2em] text-[#E8C777]">
+            <span className="font-serif text-3xl font-light tracking-[0.2em] text-[#0A321E]">
               {progress}%
             </span>
-            <span className="text-[9px] tracking-[0.4em] uppercase text-[#F5F5F5]/40">
+            <span className="text-[9px] tracking-[0.4em] uppercase text-[#0A321E]/60 font-bold">
               Purity in Every Pinch
             </span>
           </motion.div>
@@ -122,7 +122,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.8, 0] }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 bg-[#E8C777]/20 pointer-events-none mix-blend-screen"
+              className="absolute inset-0 bg-[#D4AF37]/20 pointer-events-none mix-blend-multiply"
             />
           )}
         </motion.div>

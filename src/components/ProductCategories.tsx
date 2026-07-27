@@ -49,10 +49,10 @@ export default function ProductCategories() {
 
   return (
     <section id="collections" ref={ref} className="relative py-32 md:py-44 overflow-hidden">
-      <div className="absolute inset-0 bg-[#050505]" />
+      <div className="absolute inset-0 bg-[#FFFFFF]" />
       
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C89B3C]/5 rounded-full blur-[200px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[200px]" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <motion.div
@@ -61,13 +61,13 @@ export default function ProductCategories() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-[#C89B3C] text-xs tracking-[0.4em] uppercase font-medium block mb-4">
+          <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
             Our Collections
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">
-            Curated <span className="text-gradient-gold">Premium</span> Collections
+            Curated <span className="text-gradient-gold font-bold">Premium</span> Collections
           </h2>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#C89B3C] to-transparent mx-auto" />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto" />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
@@ -77,10 +77,10 @@ export default function ProductCategories() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 + i * 0.15 }}
-              className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700"
+              className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-[#FAFAFA] rounded-xl shadow-lg border border-[#D4AF37]/20"
             >
               {/* Tag */}
-              <div className="absolute top-5 right-5 z-20 px-4 py-1.5 bg-[#C89B3C] text-[#050505] text-[10px] tracking-widest uppercase font-bold">
+              <div className="absolute top-5 right-5 z-20 px-4 py-1.5 bg-[#D4AF37] text-white text-[10px] tracking-widest uppercase font-bold rounded-md">
                 {cat.tag}
               </div>
 
@@ -93,23 +93,23 @@ export default function ProductCategories() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/10 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="p-6 sm:p-8">
-                <p className="text-[#C89B3C] text-xs tracking-[0.3em] uppercase font-medium mb-2">
+                <p className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold mb-2">
                   {cat.subtitle}
                 </p>
-                <h3 className="font-serif text-2xl md:text-3xl text-[#F5F5F5] mb-4">
+                <h3 className="font-serif text-2xl md:text-3xl text-[#0A321E] mb-4 font-bold">
                   {cat.title}
                 </h3>
-                <p className="text-[#F5F5F5]/60 text-sm leading-relaxed mb-6">
+                <p className="text-[#0A321E]/80 text-sm leading-relaxed mb-6 font-medium">
                   {cat.description}
                 </p>
                 <button
                   onClick={() => window.open(generateWhatsAppLink(cat.title), "_blank")}
-                  className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#C89B3C] to-[#E8C777] text-[#050505] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(200,155,60,0.4)] transition-all duration-500"
+                  className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md"
                 >
                   <FaWhatsapp size={16} />
                   Order on WhatsApp

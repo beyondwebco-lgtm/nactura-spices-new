@@ -19,7 +19,7 @@ export default function HeroSection() {
       return Math.random() * (max - min) + min;
     }
 
-    const interval: any = setInterval(function () {
+    const interval: ReturnType<typeof setInterval> = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
 
       if (timeLeft <= 0) {
@@ -38,7 +38,7 @@ export default function HeroSection() {
         ...defaults,
         particleCount,
         origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 },
-        colors: ["#C89B3C", "#E8C777", "#F5F5F5"],
+        colors: ["#D4AF37", "#F4C430", "#0A321E"],
         shapes: ["circle"],
         scalar: randomInRange(0.3, 0.8),
         disableForReducedMotion: true,
@@ -51,15 +51,15 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-[#FAFAFA] pt-20"
     >
       {/* Background cinematic lighting */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-gradient-radial from-[#C89B3C]/10 to-transparent rounded-full blur-none md:blur-[120px] mix-blend-screen hidden md:block animate-pulse-gold"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-[500px] md:h-[500px] bg-gradient-radial from-[#0F1C14]/80 to-transparent rounded-full blur-none md:blur-[150px]"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-gradient-radial from-[#D4AF37]/20 to-transparent rounded-full blur-none md:blur-[120px] mix-blend-multiply hidden md:block animate-pulse-gold"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-[500px] md:h-[500px] bg-gradient-radial from-[#FAFAFA]/80 to-transparent rounded-full blur-none md:blur-[150px]"></div>
         
         {/* Soft Smoke/Vignette overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.8)_80%,rgba(5,5,5,1)_100%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0)_0%,rgba(250,250,250,0.8)_80%,rgba(250,250,250,1)_100%)]"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-6 flex flex-col items-center text-center">
@@ -75,7 +75,7 @@ export default function HeroSection() {
             alt="Nactura Luxury Spices"
             fill
             sizes="(max-width: 768px) 160px, 224px"
-            className="object-contain drop-shadow-[0_0_25px_rgba(200,155,60,0.3)]"
+            className="object-contain drop-shadow-[0_0_25px_rgba(212,175,55,0.3)]"
             priority
           />
         </motion.div>
@@ -84,7 +84,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#F5F5F5]"
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#0A321E]"
         >
           NACTURA
         </motion.h1>
@@ -93,7 +93,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-lg sm:text-xl md:text-2xl text-[#E8C777] font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2"
+          className="text-lg sm:text-xl md:text-2xl text-[#D4AF37] font-semibold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2"
         >
           Luxury Spices & Dry Fruits
         </motion.p>
@@ -102,7 +102,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 1.2 }}
-          className="text-sm md:text-base text-[#F5F5F5]/60 italic font-serif tracking-wider mb-12"
+          className="text-sm md:text-base text-[#0A321E]/70 italic font-serif tracking-wider mb-12"
         >
           &quot;Purity in Every Pinch&quot;
         </motion.p>
@@ -115,14 +115,14 @@ export default function HeroSection() {
         >
           <a
             href="#collections"
-            className="px-8 py-4 w-full sm:w-auto bg-transparent border border-[#C89B3C] text-[#E8C777] text-xs sm:text-sm tracking-widest uppercase font-medium hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-500 hover-gold-glow text-center"
+            className="px-8 py-4 w-full sm:w-auto bg-transparent border border-[#0A321E] text-[#0A321E] text-xs sm:text-sm tracking-widest uppercase font-bold hover:bg-[#0A321E] hover:text-[#D4AF37] transition-all duration-500 hover-gold-glow text-center"
           >
             Explore Collections
           </a>
           
           <button
             onClick={() => window.open("https://wa.me/918870107301?text=Hello%20NACTURA,%0A%0AI’m%20interested%20in%20ordering%0AProduct:%0AQuantity:%0A%0APlease%20share%20the%20details.", "_blank")}
-            className="px-10 py-4 bg-gradient-to-r from-[#C89B3C] to-[#E8C777] text-[#050505] text-sm tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(200,155,60,0.5)] transition-all duration-500 flex items-center justify-center gap-3 w-full sm:w-auto"
+            className="px-10 py-4 bg-[#0A321E] text-[#D4AF37] text-sm tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-500 flex items-center justify-center gap-3 w-full sm:w-auto"
           >
             <FaWhatsapp size={20} />
             Order on WhatsApp

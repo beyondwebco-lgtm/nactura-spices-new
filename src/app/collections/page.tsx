@@ -384,6 +384,20 @@ const products: Product[] = [
     storageRec: "Keep at room temperature. Honey preserves naturally",
     badge: "Wild Raw",
   },
+  {
+    id: "honey-mixed-dryfruits",
+    name: "Honey Mixed Dry Fruits",
+    category: "honey",
+    subtitle: "Nutrient Rich Powerhouse",
+    description: "A premium blend of roasted almonds, cashews, pistachios, and walnuts, perfectly submerged in our wild forest honey. A daily dose of health and energy.",
+    uses: "Direct healthy snacking, energy bites, luxury dessert toppings.",
+    benefits: "High in antioxidants, healthy fats, vitamins, and minerals. Instant energy boost.",
+    weights: ["250g", "500g", "1kg"],
+    image: "/images/honey.png",
+    aromaProfile: "Sweet, nutty, and rich caramelized honey",
+    storageRec: "Keep at room temperature. Do not refrigerate.",
+    badge: "New Arrival",
+  },
   // Millet Laddus
   {
     id: "millet-laddus",
@@ -454,21 +468,21 @@ export default function CollectionsPage() {
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <main className="min-h-screen bg-[#050505] text-[#F5F5F5] selection:bg-[#C89B3C]/30 selection:text-[#E8C777]">
+      <main className="min-h-screen bg-[#FAFAFA] text-[#0A321E] selection:bg-[#D4AF37]/30 selection:text-[#0A321E]">
         <Navbar />
 
           {/* Hero Section */}
-          <section className="relative pt-44 pb-20 overflow-hidden bg-gradient-to-b from-[#0F1C14]/40 via-[#050505] to-[#050505]">
+          <section className="relative pt-44 pb-20 overflow-hidden bg-gradient-to-b from-[#FAFAFA] via-[#FAFAFA] to-[#FAFAFA]">
             <div className="absolute inset-0 z-0">
-              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#C89B3C]/5 rounded-full blur-[180px]"></div>
+              <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#D4AF37]/10 rounded-full blur-[180px]"></div>
             </div>
 
             <div className="container relative z-10 mx-auto px-6 text-center max-w-4xl">
               {/* Breadcrumb */}
-              <div className="text-[10px] tracking-[0.3em] uppercase text-[#F5F5F5]/40 mb-6 flex items-center justify-center gap-2">
-                <Link href="/" className="hover:text-[#C89B3C] transition-colors">Home</Link>
+              <div className="text-[10px] tracking-[0.3em] uppercase text-[#0A321E]/60 mb-6 flex items-center justify-center gap-2 font-bold">
+                <Link href="/" className="hover:text-[#D4AF37] transition-colors">Home</Link>
                 <span>&rarr;</span>
-                <span className="text-[#C89B3C] font-bold">Collections</span>
+                <span className="text-[#D4AF37] font-bold">Collections</span>
               </div>
               
               <motion.h1
@@ -477,28 +491,28 @@ export default function CollectionsPage() {
                 transition={{ duration: 0.8 }}
                 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
               >
-                Our Premium <span className="text-gradient-gold">Collection</span>
+                Our Premium <span className="text-gradient-gold font-bold">Collection</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base md:text-lg text-[#F5F5F5]/60 max-w-2xl mx-auto font-light leading-relaxed mb-10"
+                className="text-base md:text-lg text-[#0A321E]/80 max-w-2xl mx-auto font-medium leading-relaxed mb-10"
               >
                 Handpicked from Nature. Packed with Purity. Crafted for Every Kitchen.
               </motion.p>
 
               <button
                 onClick={() => window.open(generateWhatsAppLink("Entire Premium Collection"), "_blank")}
-                className="px-10 py-4 bg-gradient-to-r from-[#C89B3C] to-[#E8C777] text-[#050505] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(200,155,60,0.5)] transition-all duration-500 flex items-center justify-center gap-3 mx-auto"
+                className="px-10 py-4 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:bg-[#D4AF37] hover:text-white transition-all duration-500 flex items-center justify-center gap-3 mx-auto rounded-md"
               >
                 <FaWhatsapp size={16} />
                 Enquire on WhatsApp
               </button>
 
               {/* Scroll Indicator */}
-              <div className="mt-16 animate-bounce text-[#C89B3C]/50 text-xs tracking-widest uppercase flex flex-col items-center gap-2">
+              <div className="mt-16 animate-bounce text-[#D4AF37] text-xs tracking-widest uppercase flex flex-col items-center gap-2 font-bold">
                 <span>Scroll to Explore</span>
                 <span>&darr;</span>
               </div>
@@ -506,7 +520,7 @@ export default function CollectionsPage() {
           </section>
 
           {/* Search & Filter Controls */}
-          <section className="py-6 border-y border-[#C89B3C]/10 bg-[#050505]/50 backdrop-blur-sm sticky top-[72px] z-30">
+          <section className="py-6 border-y border-[#D4AF37]/20 bg-[#FFFFFF]/80 backdrop-blur-sm sticky top-[72px] z-30">
             <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row items-center justify-between gap-6">
               {/* Filter pills */}
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
@@ -516,8 +530,8 @@ export default function CollectionsPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 text-[10px] tracking-widest uppercase border transition-all duration-500 font-medium ${
                       selectedCategory === cat.id
-                        ? "border-[#C89B3C] bg-[#C89B3C] text-[#050505]"
-                        : "border-[#C89B3C]/20 hover:border-[#C89B3C]/50 text-[#F5F5F5]/70"
+                        ? "border-[#D4AF37] bg-[#D4AF37] text-white"
+                        : "border-[#D4AF37]/20 hover:border-[#D4AF37]/50 text-[#0A321E]/70 hover:text-[#0A321E] bg-white"
                     }`}
                   >
                     {cat.name}
@@ -532,9 +546,9 @@ export default function CollectionsPage() {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
-                  className="w-full bg-[#0F1C14]/30 border border-[#C89B3C]/20 focus:border-[#C89B3C] rounded-none py-2.5 pl-10 pr-4 text-xs text-[#F5F5F5] placeholder-[#F5F5F5]/30 outline-none transition-all duration-300"
+                  className="w-full bg-white border border-[#D4AF37]/30 focus:border-[#D4AF37] rounded-md py-2.5 pl-10 pr-4 text-xs text-[#0A321E] placeholder-[#0A321E]/40 outline-none transition-all duration-300 shadow-sm"
                 />
-                <FaSearch className="absolute left-3.5 top-3.5 text-[#C89B3C]/50 text-xs" />
+                <FaSearch className="absolute left-3.5 top-3.5 text-[#D4AF37] text-xs" />
               </div>
             </div>
           </section>
@@ -556,10 +570,10 @@ export default function CollectionsPage() {
                       exit={{ opacity: 0, scale: 0.9 }}
                       transition={{ duration: 0.5 }}
                       onClick={() => setSelectedProduct(p)}
-                      className="group cursor-pointer glass-panel overflow-hidden border border-[#C89B3C]/15 hover-gold-glow hover:-translate-y-2 transition-all duration-500 relative"
+                      className="group cursor-pointer glass-panel overflow-hidden border border-[#D4AF37]/20 hover-gold-glow hover:-translate-y-2 transition-all duration-500 relative bg-white shadow-sm rounded-xl"
                     >
                       {/* Product Image */}
-                      <div className="relative w-full h-64 bg-[#0F1C14]/10 overflow-hidden">
+                      <div className="relative w-full h-64 bg-[#FAFAFA] overflow-hidden">
                         <Image
                           src={p.image}
                           alt={p.name}
@@ -568,11 +582,11 @@ export default function CollectionsPage() {
                           loading="lazy"
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA]/90 via-transparent to-transparent" />
                         
                         {/* Custom Badging */}
                         {p.badge && (
-                          <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-[#C89B3C] text-[#050505] text-[8px] tracking-widest uppercase font-bold">
+                          <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-[#D4AF37] text-white text-[8px] tracking-widest uppercase font-bold rounded">
                             {p.badge}
                           </div>
                         )}
@@ -580,21 +594,21 @@ export default function CollectionsPage() {
 
                       {/* Content */}
                       <div className="p-6">
-                        <span className="text-[#C89B3C] text-[10px] tracking-widest uppercase font-bold block mb-1">
+                        <span className="text-[#D4AF37] text-[10px] tracking-widest uppercase font-bold block mb-1">
                           {p.subtitle}
                         </span>
-                        <h3 className="font-serif text-xl text-[#F5F5F5] group-hover:text-[#E8C777] transition-colors duration-300 mb-3">
+                        <h3 className="font-serif text-xl text-[#0A321E] group-hover:text-[#D4AF37] transition-colors duration-300 mb-3 font-bold">
                           {p.name}
                         </h3>
-                        <p className="text-xs text-[#F5F5F5]/50 leading-relaxed line-clamp-2 mb-4">
+                        <p className="text-xs text-[#0A321E]/70 leading-relaxed line-clamp-2 mb-4 font-medium">
                           {p.description}
                         </p>
                         
-                        <div className="flex items-center justify-between border-t border-[#C89B3C]/15 pt-4">
-                          <span className="text-[10px] text-[#F5F5F5]/40 tracking-wider">
+                        <div className="flex items-center justify-between border-t border-[#D4AF37]/20 pt-4">
+                          <span className="text-[10px] text-[#0A321E]/60 tracking-wider font-bold">
                             {p.weights.join(" / ")}
                           </span>
-                          <span className="text-[10px] text-[#C89B3C] tracking-widest uppercase font-bold group-hover:underline">
+                          <span className="text-[10px] text-[#D4AF37] tracking-widest uppercase font-bold group-hover:underline">
                             Enquire Now
                           </span>
                         </div>
@@ -607,26 +621,26 @@ export default function CollectionsPage() {
           </section>
 
           {/* Premium Call to Action Ending Section */}
-          <section className="py-24 border-t border-[#C89B3C]/15 bg-gradient-to-b from-[#050505] to-[#0F1C14]/30">
+          <section className="py-24 border-t border-[#D4AF37]/20 bg-[#FFFFFF]">
             <div className="container mx-auto px-6 text-center max-w-3xl">
-              <h2 className="font-serif text-3xl md:text-5xl text-[#F5F5F5] mb-6">
-                Looking for <span className="text-gradient-gold">Premium Natural Products?</span>
+              <h2 className="font-serif text-3xl md:text-5xl text-[#0A321E] mb-6">
+                Looking for <span className="text-gradient-gold font-bold">Premium Natural Products?</span>
               </h2>
-              <p className="text-sm md:text-base text-[#F5F5F5]/60 leading-relaxed mb-10 max-w-2xl mx-auto font-light">
+              <p className="text-sm md:text-base text-[#0A321E]/80 leading-relaxed mb-10 max-w-2xl mx-auto font-medium">
                 &ldquo;Connect with us directly on WhatsApp and we&rsquo;ll help you choose the perfect products for your home or business.&rdquo;
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={() => window.open(generateWhatsAppLink("General Collections Inquiry"), "_blank")}
-                  className="px-10 py-4 bg-gradient-to-r from-[#C89B3C] to-[#E8C777] text-[#050505] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(200,155,60,0.5)] transition-all duration-500 flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="px-10 py-4 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:bg-[#D4AF37] hover:text-white transition-all duration-500 flex items-center justify-center gap-2 w-full sm:w-auto rounded-md"
                 >
                   <FaWhatsapp size={16} />
                   Enquire on WhatsApp
                 </button>
                 <a
                   href="tel:8870107301"
-                  className="px-10 py-4 border border-[#C89B3C] text-[#C89B3C] text-xs tracking-widest uppercase font-bold hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-500 flex items-center justify-center gap-2 w-full sm:w-auto"
+                  className="px-10 py-4 border border-[#0A321E] text-[#0A321E] text-xs tracking-widest uppercase font-bold hover:bg-[#0A321E] hover:text-[#D4AF37] transition-all duration-500 flex items-center justify-center gap-2 w-full sm:w-auto rounded-md"
                 >
                   <FaPhone size={12} />
                   Call Now
@@ -642,25 +656,25 @@ export default function CollectionsPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050505]/95 backdrop-blur-md overflow-y-auto"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/95 backdrop-blur-md overflow-y-auto"
               >
                 <motion.div
                   initial={{ scale: 0.9, y: 30 }}
                   animate={{ scale: 1, y: 0 }}
                   exit={{ scale: 0.9, y: 30 }}
                   transition={{ type: "spring", damping: 25, stiffness: 180 }}
-                  className="relative w-full max-w-4xl bg-[#050505] border border-[#C89B3C]/30 p-6 md:p-10 max-h-[90vh] overflow-y-auto hover-gold-glow"
+                  className="relative w-full max-w-4xl bg-[#FAFAFA] border border-[#D4AF37]/30 p-6 md:p-10 max-h-[90vh] overflow-y-auto hover-gold-glow rounded-xl shadow-2xl"
                 >
                   <button
                     onClick={() => setSelectedProduct(null)}
-                    className="absolute top-5 right-5 text-[#C89B3C] hover:text-[#E8C777] p-2 transition-colors duration-300 z-10"
+                    className="absolute top-5 right-5 text-[#D4AF37] hover:text-[#0A321E] p-2 transition-colors duration-300 z-10"
                   >
                     <FaTimes size={24} />
                   </button>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
                     {/* Left image column */}
-                    <div className="relative w-full h-80 md:h-[400px] overflow-hidden border border-[#C89B3C]/20">
+                    <div className="relative w-full h-80 md:h-[400px] overflow-hidden border border-[#D4AF37]/20 bg-white rounded-lg">
                       <Image
                         src={selectedProduct.image}
                         alt={selectedProduct.name}
@@ -673,79 +687,79 @@ export default function CollectionsPage() {
                     <div className="flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[#C89B3C] text-xs tracking-[0.25em] uppercase font-bold">
+                          <span className="text-[#D4AF37] text-xs tracking-[0.25em] uppercase font-bold">
                             {selectedProduct.subtitle}
                           </span>
                           {selectedProduct.badge && (
-                            <span className="px-2 py-0.5 border border-[#C89B3C]/30 text-[#E8C777] text-[8px] tracking-wider uppercase bg-[#0F1C14]/40">
+                            <span className="px-2 py-0.5 border border-[#D4AF37]/30 text-white text-[8px] tracking-wider uppercase bg-[#D4AF37] rounded">
                               {selectedProduct.badge}
                             </span>
                           )}
                         </div>
-                        <h2 className="font-serif text-3xl md:text-4xl text-[#F5F5F5] mb-4">
+                        <h2 className="font-serif text-3xl md:text-4xl text-[#0A321E] mb-4 font-bold">
                           {selectedProduct.name}
                         </h2>
                         
-                        <p className="text-sm text-[#F5F5F5]/70 leading-relaxed mb-6 font-light">
+                        <p className="text-sm text-[#0A321E]/80 leading-relaxed mb-6 font-medium">
                           {selectedProduct.description}
                         </p>
 
                         <div className="space-y-4 mb-8">
                           {selectedProduct.aromaProfile && (
                             <div>
-                              <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1">
+                              <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1">
                                 Aroma & Flavor Profile
                               </h4>
-                              <p className="text-xs text-[#F5F5F5]/60 leading-relaxed">
+                              <p className="text-xs text-[#0A321E]/70 leading-relaxed font-medium">
                                 {selectedProduct.aromaProfile}
                               </p>
                             </div>
                           )}
                           {selectedProduct.ingredients && (
                             <div>
-                              <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1">
+                              <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1">
                                 Ingredients
                               </h4>
-                              <p className="text-xs text-[#F5F5F5]/60 leading-relaxed">
+                              <p className="text-xs text-[#0A321E]/70 leading-relaxed font-medium">
                                 {selectedProduct.ingredients}
                               </p>
                             </div>
                           )}
                           <div>
-                            <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1">
+                            <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1">
                               Culinary Uses
                             </h4>
-                            <p className="text-xs text-[#F5F5F5]/60 leading-relaxed">
+                            <p className="text-xs text-[#0A321E]/70 leading-relaxed font-medium">
                               {selectedProduct.uses}
                             </p>
                           </div>
                           <div>
-                            <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1">
+                            <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1">
                               Health Benefits
                             </h4>
-                            <p className="text-xs text-[#F5F5F5]/60 leading-relaxed">
+                            <p className="text-xs text-[#0A321E]/70 leading-relaxed font-medium">
                               {selectedProduct.benefits}
                             </p>
                           </div>
                           {selectedProduct.storageRec && (
                             <div>
-                              <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1">
+                              <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1">
                                 Storage Recommendation
                               </h4>
-                              <p className="text-xs text-[#F5F5F5]/60 leading-relaxed">
+                              <p className="text-xs text-[#0A321E]/70 leading-relaxed font-medium">
                                 {selectedProduct.storageRec}
                               </p>
                             </div>
                           )}
                           <div>
-                            <h4 className="text-xs tracking-wider uppercase text-[#E8C777] font-bold mb-1.5">
+                            <h4 className="text-xs tracking-wider uppercase text-[#D4AF37] font-bold mb-1.5">
                               Available Sizes
                             </h4>
                             <div className="flex flex-wrap gap-2">
                               {selectedProduct.weights.map((w) => (
                                 <span
                                   key={w}
-                                  className="px-3 py-1 text-[10px] tracking-wider uppercase border border-[#C89B3C]/30 text-[#E8C777] bg-[#0F1C14]/30"
+                                  className="px-3 py-1 text-[10px] tracking-wider uppercase border border-[#D4AF37]/30 text-[#D4AF37] bg-white rounded shadow-sm font-bold"
                                 >
                                   {w}
                                 </span>
@@ -762,7 +776,7 @@ export default function CollectionsPage() {
                             "_blank"
                           )
                         }
-                        className="w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-[#C89B3C] to-[#E8C777] text-[#050505] text-xs tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(200,155,60,0.4)] transition-all duration-500"
+                        className="w-full flex items-center justify-center gap-3 py-4 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md mt-6"
                       >
                         <FaWhatsapp size={18} />
                         Enquire on WhatsApp

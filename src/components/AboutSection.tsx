@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section id="about" ref={ref} className="relative py-32 md:py-44 overflow-hidden">
       {/* Background subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0F1C14]/40 to-[#050505]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF] via-[#FAFAFA] to-[#FFFFFF]" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12 max-w-5xl">
         {/* Section Label */}
@@ -21,7 +21,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <span className="text-[#C89B3C] text-xs tracking-[0.4em] uppercase font-medium">
+          <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold">
             Our Story
           </span>
         </motion.div>
@@ -33,7 +33,7 @@ export default function AboutSection() {
           className="font-serif text-4xl md:text-5xl lg:text-6xl text-center mb-6 leading-tight"
         >
           From the Hills of{" "}
-          <span className="text-gradient-gold">Idukki</span>
+          <span className="text-gradient-gold font-bold">Idukki</span>
           <br />
           to Your Kitchen
         </motion.h2>
@@ -43,14 +43,14 @@ export default function AboutSection() {
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : {}}
           transition={{ duration: 1, delay: 0.4 }}
-          className="w-24 h-px bg-gradient-to-r from-transparent via-[#C89B3C] to-transparent mx-auto mb-10"
+          className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-10"
         />
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-lg md:text-xl text-[#F5F5F5]/70 text-center leading-relaxed max-w-3xl mx-auto mb-16 font-light"
+          className="text-lg md:text-xl text-[#0A321E]/80 text-center leading-relaxed max-w-3xl mx-auto mb-16 font-medium"
         >
           We handpick every spice and dry fruit to deliver unmatched purity,
           aroma, and freshness. Sourced directly from the lush plantations of
@@ -73,7 +73,7 @@ export default function AboutSection() {
           ].map((item) => (
             <div
               key={item}
-              className="px-6 py-3 border border-[#C89B3C]/30 text-[#E8C777] text-sm tracking-widest uppercase glass-panel hover:border-[#C89B3C] transition-all duration-500"
+              className="px-6 py-3 border border-[#D4AF37]/30 text-[#0A321E] text-sm tracking-widest uppercase font-bold hover:bg-[#D4AF37]/10 hover:border-[#D4AF37] transition-all duration-500 rounded-md"
             >
               {item}
             </div>
@@ -85,12 +85,12 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.9 }}
-          className="relative overflow-hidden glass-panel border border-[#C89B3C]/20 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto hover-gold-glow"
+          className="relative overflow-hidden glass-panel border border-[#D4AF37]/20 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-4xl mx-auto hover-gold-glow bg-[#FAFAFA] rounded-2xl shadow-lg"
         >
-          <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#C89B3C]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-[#D4AF37]/5 to-transparent pointer-events-none" />
 
           {/* Owner Image */}
-          <div className="relative w-44 h-44 md:w-56 md:h-56 flex-shrink-0 border border-[#C89B3C]/30 overflow-hidden relative z-10 shadow-[0_0_25px_rgba(200,155,60,0.15)]">
+          <div className="relative w-44 h-44 md:w-56 md:h-56 flex-shrink-0 border border-[#D4AF37]/30 overflow-hidden relative z-10 shadow-[0_0_25px_rgba(212,175,55,0.15)] rounded-full">
             <Image
               src="/images/sharath_owner.jpg"
               alt="Sharath R - Owner & Founder"
@@ -102,16 +102,16 @@ export default function AboutSection() {
 
           {/* Bio text */}
           <div className="relative z-10 text-center md:text-left flex-grow">
-            <span className="text-[#C89B3C] text-[10px] tracking-[0.3em] uppercase font-bold block mb-2">
+            <span className="text-[#D4AF37] text-[10px] tracking-[0.3em] uppercase font-bold block mb-2">
               Founder & Owner
             </span>
-            <h3 className="font-serif text-3xl text-[#F5F5F5] mb-4">
+            <h3 className="font-serif text-3xl text-[#0A321E] mb-4 font-bold">
               Sharath R
             </h3>
-            <p className="text-sm text-[#F5F5F5]/70 leading-relaxed font-light mb-6 italic">
+            <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium mb-6 italic">
               &ldquo;At NACTURA, our core philosophy is simple: honesty and purity in every single pinch. Sourcing directly from our home plantations allows us to ensure that the aroma, oils, and freshness remain absolutely unaltered from forest to table.&rdquo;
             </p>
-            <div className="w-16 h-0.5 bg-[#C89B3C]/40 mx-auto md:mx-0" />
+            <div className="w-16 h-0.5 bg-[#D4AF37]/40 mx-auto md:mx-0" />
           </div>
         </motion.div>
 

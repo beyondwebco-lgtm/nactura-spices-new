@@ -21,7 +21,7 @@ export default function WhyChooseUs() {
 
   return (
     <section ref={ref} className="relative py-32 md:py-44 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0F1C14]/30 to-[#050505]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF] via-[#FAFAFA] to-[#FFFFFF]" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <motion.div
@@ -30,13 +30,13 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-[#C89B3C] text-xs tracking-[0.4em] uppercase font-medium block mb-4">
+          <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
             The NACTURA Promise
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">
             Why Choose <span className="text-gradient-gold">NACTURA</span>
           </h2>
-          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#C89B3C] to-transparent mx-auto" />
+          <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto" />
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto">
@@ -46,18 +46,18 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * i }}
-              className="group text-center p-6 glass-panel hover-gold-glow hover:-translate-y-2 transition-all duration-500"
+              className="group text-center p-6 glass-panel hover-gold-glow hover:-translate-y-2 transition-all duration-500 bg-[#FAFAFA] rounded-xl shadow-sm border border-[#D4AF37]/20"
             >
-              <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center border border-[#C89B3C]/30 group-hover:border-[#C89B3C] transition-colors duration-500 group-hover:bg-[#C89B3C]/10">
+              <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center border border-[#D4AF37]/30 group-hover:border-[#D4AF37] transition-colors duration-500 group-hover:bg-[#D4AF37]/10 rounded-full bg-white">
                 <feature.icon
                   size={24}
-                  className="text-[#C89B3C] group-hover:text-[#E8C777] transition-colors duration-500"
+                  className="text-[#D4AF37] transition-colors duration-500"
                 />
               </div>
-              <h3 className="font-serif text-sm md:text-base text-[#F5F5F5] mb-2 group-hover:text-[#E8C777] transition-colors duration-300">
+              <h3 className="font-serif text-sm md:text-base text-[#0A321E] mb-2 font-bold group-hover:text-[#D4AF37] transition-colors duration-300">
                 {feature.title}
               </h3>
-              <p className="text-[#F5F5F5]/70 text-xs leading-relaxed">
+              <p className="text-[#0A321E]/80 text-xs leading-relaxed font-medium">
                 {feature.desc}
               </p>
             </motion.div>
