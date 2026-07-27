@@ -38,45 +38,45 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex justify-center gap-8">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-8">
             <Link
               href="/#collections"
-              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300 py-3 sm:py-2 px-4"
             >
               Collections
             </Link>
             <Link
               href="/products"
-              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300 py-3 sm:py-2 px-4"
             >
               Catalog
             </Link>
             <Link
               href="/#testimonials"
-              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300 py-3 sm:py-2 px-4"
             >
               Testimonials
             </Link>
             <Link
               href="/#contact"
-              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300"
+              className="text-xs tracking-widest uppercase text-[#F5F5F5]/60 hover:text-[#C89B3C] transition-colors duration-300 py-3 sm:py-2 px-4"
             >
               Contact
             </Link>
           </div>
 
           {/* Social Icons */}
-          <div className="flex justify-center md:justify-end gap-5">
+          <div className="flex justify-center md:justify-end gap-4 sm:gap-5 mt-4 md:mt-0">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center border border-[#C89B3C]/30 text-[#C89B3C] hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-300 rounded-full"
+                className="w-12 h-12 flex items-center justify-center border border-[#C89B3C]/30 text-[#C89B3C] hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-300 rounded-full"
                 aria-label={social.label}
               >
-                <social.icon size={16} />
+                <social.icon size={18} />
               </a>
             ))}
           </div>

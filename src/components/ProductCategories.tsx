@@ -90,13 +90,14 @@ export default function ProductCategories() {
                   src={cat.image}
                   alt={cat.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent" />
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <p className="text-[#C89B3C] text-xs tracking-[0.3em] uppercase font-medium mb-2">
                   {cat.subtitle}
                 </p>

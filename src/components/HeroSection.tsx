@@ -26,7 +26,8 @@ export default function HeroSection() {
         return clearInterval(interval);
       }
 
-      const particleCount = 20 * (timeLeft / duration);
+      const isMobile = window.innerWidth < 768;
+      const particleCount = (isMobile ? 10 : 20) * (timeLeft / duration);
       
       confetti({
         ...defaults,
@@ -45,12 +46,12 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-[#050505] pt-20"
     >
       {/* Background cinematic lighting */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C89B3C]/10 rounded-full blur-[120px] mix-blend-screen animate-pulse-gold"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#0F1C14]/80 rounded-full blur-[150px]"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-[#C89B3C]/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen animate-pulse-gold"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-[500px] md:h-[500px] bg-[#0F1C14]/80 rounded-full blur-[80px] md:blur-[150px]"></div>
         
         {/* Soft Smoke/Vignette overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.8)_80%,rgba(5,5,5,1)_100%)]"></div>
@@ -68,6 +69,7 @@ export default function HeroSection() {
             src="/images/logo.png"
             alt="Nactura Luxury Spices"
             fill
+            sizes="(max-width: 768px) 160px, 224px"
             className="object-contain drop-shadow-[0_0_25px_rgba(200,155,60,0.3)]"
             priority
           />
@@ -77,7 +79,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#F5F5F5]"
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#F5F5F5]"
         >
           NACTURA
         </motion.h1>
@@ -86,7 +88,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="text-xl md:text-2xl text-[#E8C777] font-light tracking-[0.3em] uppercase mb-2"
+          className="text-lg sm:text-xl md:text-2xl text-[#E8C777] font-light tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2"
         >
           Luxury Spices & Dry Fruits
         </motion.p>
@@ -104,11 +106,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.5 }}
-          className="flex flex-col sm:flex-row items-center gap-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto"
         >
           <a
             href="#collections"
-            className="px-10 py-4 bg-transparent border border-[#C89B3C] text-[#E8C777] text-sm tracking-widest uppercase font-medium hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-500 hover-gold-glow w-full sm:w-auto text-center"
+            className="px-8 py-4 w-full sm:w-auto bg-transparent border border-[#C89B3C] text-[#E8C777] text-xs sm:text-sm tracking-widest uppercase font-medium hover:bg-[#C89B3C] hover:text-[#050505] transition-all duration-500 hover-gold-glow text-center"
           >
             Explore Collections
           </a>

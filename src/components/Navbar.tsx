@@ -18,6 +18,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: "Collections", href: "/collections" },
     { name: "About", href: "/#about" },
@@ -75,10 +86,11 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-50 text-[#C89B3C] p-2"
+            className="md:hidden relative z-50 text-[#C89B3C] p-3 -mr-3"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
       </header>
@@ -98,7 +110,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-2xl font-serif text-[#F5F5F5] hover:text-[#C89B3C] transition-colors duration-300"
+                className="text-2xl font-serif text-[#F5F5F5] hover:text-[#C89B3C] transition-colors duration-300 py-4 w-full text-center"
               >
                 {link.name}
               </Link>

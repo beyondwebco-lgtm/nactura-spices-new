@@ -54,6 +54,7 @@ export default function FeaturedSection() {
                 src="/images/spices_combo.png"
                 alt="12 Premium Spices Combo"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent" />
@@ -125,6 +126,7 @@ export default function FeaturedSection() {
                 src="/images/dryfruits_combo.png"
                 alt="7 Premium Dry Fruits Combo"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent" />

@@ -95,6 +95,7 @@ export default function AboutSection() {
               src="/images/sharath_owner.jpg"
               alt="Sharath R - Owner & Founder"
               fill
+              sizes="(max-width: 768px) 176px, 224px"
               className="object-cover object-top hover:scale-105 transition-transform duration-700"
             />
           </div>

@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   description: "Purity in Every Pinch. Premium luxury spices and dry fruits from the hills of Idukki. 100% natural, handpicked with care.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false, // Prevents input zoom zooming layout
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
