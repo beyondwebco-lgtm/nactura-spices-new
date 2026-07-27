@@ -27,7 +27,12 @@ export default function HeroSection() {
       }
 
       const isMobile = window.innerWidth < 768;
-      const particleCount = (isMobile ? 10 : 20) * (timeLeft / duration);
+      
+      if (isMobile) {
+        return; // Disable confetti on mobile to save main thread
+      }
+
+      const particleCount = 20 * (timeLeft / duration);
       
       confetti({
         ...defaults,
@@ -38,7 +43,7 @@ export default function HeroSection() {
         scalar: randomInRange(0.3, 0.8),
         disableForReducedMotion: true,
       });
-    }, 250);
+    }, 500); // reduced frequency to 500ms
 
     return () => clearInterval(interval);
   }, []);
@@ -50,8 +55,8 @@ export default function HeroSection() {
     >
       {/* Background cinematic lighting */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-[#C89B3C]/10 rounded-full blur-[60px] md:blur-[120px] mix-blend-screen animate-pulse-gold"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-[500px] md:h-[500px] bg-[#0F1C14]/80 rounded-full blur-[80px] md:blur-[150px]"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 bg-gradient-radial from-[#C89B3C]/10 to-transparent rounded-full blur-none md:blur-[120px] mix-blend-screen hidden md:block animate-pulse-gold"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 md:w-[500px] md:h-[500px] bg-gradient-radial from-[#0F1C14]/80 to-transparent rounded-full blur-none md:blur-[150px]"></div>
         
         {/* Soft Smoke/Vignette overlay */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(5,5,5,0.8)_80%,rgba(5,5,5,1)_100%)]"></div>

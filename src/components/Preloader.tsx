@@ -9,7 +9,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const duration = 2500; // 2.5 seconds loading time
+    const duration = 1200; // 1.2 seconds max loading time
     const intervalTime = 25;
     const steps = duration / intervalTime;
     let stepCount = 0;

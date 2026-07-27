@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp, FaArrowLeft, FaTimes, FaSearch, FaPhone } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Preloader from "@/components/Preloader";
+
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"), { ssr: false });
 
 interface Product {
   id: string;
@@ -450,11 +452,10 @@ export default function CollectionsPage() {
 
   return (
     <>
-      <Preloader onComplete={() => setIsLoading(false)} />
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      {!isLoading && (
-        <main className="min-h-screen bg-[#050505] text-[#F5F5F5] selection:bg-[#C89B3C]/30 selection:text-[#E8C777]">
-          <Navbar />
+      <main className="min-h-screen bg-[#050505] text-[#F5F5F5] selection:bg-[#C89B3C]/30 selection:text-[#E8C777]">
+        <Navbar />
 
           {/* Hero Section */}
           <section className="relative pt-44 pb-20 overflow-hidden bg-gradient-to-b from-[#0F1C14]/40 via-[#050505] to-[#050505]">
@@ -774,9 +775,8 @@ export default function CollectionsPage() {
           </AnimatePresence>
 
           <Footer />
-          <FloatingWhatsApp />
-        </main>
-      )}
+        <FloatingWhatsApp />
+      </main>
     </>
   );
 }

@@ -2,20 +2,22 @@
 
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ProductCategories from "@/components/ProductCategories";
-import IndividualSpices from "@/components/IndividualSpices";
-import FeaturedSection from "@/components/FeaturedSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import FounderSection from "@/components/FounderSection";
-import Testimonials from "@/components/Testimonials";
-import MeeshoSection from "@/components/MeeshoSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Preloader from "@/components/Preloader";
+
+const AboutSection = dynamic(() => import("@/components/AboutSection"), { ssr: true });
+const ProductCategories = dynamic(() => import("@/components/ProductCategories"), { ssr: true });
+const IndividualSpices = dynamic(() => import("@/components/IndividualSpices"), { ssr: true });
+const FeaturedSection = dynamic(() => import("@/components/FeaturedSection"), { ssr: true });
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"), { ssr: true });
+const FounderSection = dynamic(() => import("@/components/FounderSection"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const MeeshoSection = dynamic(() => import("@/components/MeeshoSection"), { ssr: true });
+const ContactSection = dynamic(() => import("@/components/ContactSection"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
+const FloatingWhatsApp = dynamic(() => import("@/components/FloatingWhatsApp"), { ssr: false });
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,24 +44,22 @@ export default function Home() {
 
   return (
     <>
-      <Preloader onComplete={() => setIsLoading(false)} />
-      {!isLoading && (
-        <main className="min-h-screen bg-brand-bg text-brand-white selection:bg-brand-gold/30 selection:text-brand-gold-light">
-          <Navbar />
-          <HeroSection />
-          <AboutSection />
-          <ProductCategories />
-          <FeaturedSection />
-          <IndividualSpices />
-          <WhyChooseUs />
-          <FounderSection />
-          <Testimonials />
-          <MeeshoSection />
-          <ContactSection />
-          <Footer />
-          <FloatingWhatsApp />
-        </main>
-      )}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      <main className="min-h-screen bg-brand-bg text-brand-white selection:bg-brand-gold/30 selection:text-brand-gold-light">
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <ProductCategories />
+        <FeaturedSection />
+        <IndividualSpices />
+        <WhyChooseUs />
+        <FounderSection />
+        <Testimonials />
+        <MeeshoSection />
+        <ContactSection />
+        <Footer />
+        <FloatingWhatsApp />
+      </main>
     </>
   );
 }
