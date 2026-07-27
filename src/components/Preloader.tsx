@@ -93,13 +93,11 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               transition={{ duration: 0.5 }}
               className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden"
             >
-              <Image
-                src="/images/logo.png"
+              <img
+                src="/images/logo_preload.webp"
                 alt="Nactura Preloader"
-                fill
-                sizes="(max-width: 768px) 144px, 176px"
-                className="object-cover"
-                priority
+                className="object-cover w-full h-full"
+                loading="eager"
               />
             </motion.div>
           </div>
