@@ -44,8 +44,17 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           {/* Subtle background golden glow & particles */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(200,155,60,0.08)_0%,rgba(5,5,5,1)_70%)] pointer-events-none" />
           
-          {/* Floating sparks (CSS background simulation) */}
-          <div className="absolute inset-0 bg-[url('/images/spices_combo.png')] bg-cover opacity-[0.02] mix-blend-screen pointer-events-none blur-[4px]" />
+          {/* Floating sparks (Next Image optimized) */}
+          <div className="absolute inset-0 opacity-[0.02] mix-blend-screen pointer-events-none blur-[4px]">
+            <Image
+              src="/images/spices_combo.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
 
           <div className="relative flex flex-col items-center justify-center">
             {/* Circular Gold Loading Ring */}
@@ -88,6 +97,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
                 src="/images/logo.png"
                 alt="Nactura Preloader"
                 fill
+                sizes="(max-width: 768px) 144px, 176px"
                 className="object-cover"
                 priority
               />

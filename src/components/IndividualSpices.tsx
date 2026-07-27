@@ -72,9 +72,9 @@ export default function IndividualSpices() {
               <div className="text-3xl md:text-4xl mb-3 group-hover:scale-125 transition-transform duration-500">
                 {spiceEmojis[i]}
               </div>
-              <h4 className="font-serif text-sm md:text-base text-[#F5F5F5] mb-1 group-hover:text-[#E8C777] transition-colors duration-300">
+              <h3 className="font-serif text-sm md:text-base text-[#F5F5F5] mb-1 group-hover:text-[#E8C777] transition-colors duration-300">
                 {spice.name}
-              </h4>
+              </h3>
               <p className="text-[10px] text-[#C89B3C]/70 tracking-wider">
                 {spice.aka}
               </p>

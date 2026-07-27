@@ -130,11 +130,17 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Floating Spices Effect (CSS base) */}
+      {/* Floating Spices Effect (Next Image optimized) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-30">
-        <div className="absolute top-[20%] left-[10%] w-16 h-16 bg-[url('/images/spices_combo.png')] bg-contain bg-no-repeat blur-[2px] animate-float" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-[60%] right-[15%] w-24 h-24 bg-[url('/images/spices_combo.png')] bg-contain bg-no-repeat blur-[4px] animate-float-slow" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-[20%] left-[25%] w-12 h-12 bg-[url('/images/dryfruits_combo.png')] bg-contain bg-no-repeat blur-[1px] animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[20%] left-[10%] w-16 h-16 blur-[2px] animate-float" style={{ animationDelay: '0s' }}>
+          <Image src="/images/spices_combo.png" alt="" fill sizes="64px" className="object-contain" />
+        </div>
+        <div className="absolute top-[60%] right-[15%] w-24 h-24 blur-[4px] animate-float-slow" style={{ animationDelay: '2s' }}>
+          <Image src="/images/spices_combo.png" alt="" fill sizes="96px" className="object-contain" />
+        </div>
+        <div className="absolute bottom-[20%] left-[25%] w-12 h-12 blur-[1px] animate-float" style={{ animationDelay: '1s' }}>
+          <Image src="/images/dryfruits_combo.png" alt="" fill sizes="48px" className="object-contain" />
+        </div>
       </div>
     </section>
   );

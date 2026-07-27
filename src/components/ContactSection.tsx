@@ -47,18 +47,18 @@ export default function ContactSection() {
             {/* Contact Details */}
             <div className="space-y-8">
               <div>
-                <h4 className="font-serif text-lg text-[#E8C777] mb-3 flex items-center gap-2">
+                <h3 className="font-serif text-lg text-[#E8C777] mb-3 flex items-center gap-2">
                   <FaMapMarkerAlt size={16} /> Location
-                </h4>
+                </h3>
                 <p className="text-sm text-[#F5F5F5]/70 leading-relaxed font-light">
                   {address}
                 </p>
               </div>
-
+              
               <div>
-                <h4 className="font-serif text-lg text-[#E8C777] mb-3 flex items-center gap-2">
+                <h3 className="font-serif text-lg text-[#E8C777] mb-3 flex items-center gap-2">
                   <FaPhoneAlt size={14} /> Call Us
-                </h4>
+                </h3>
                 <div className="space-y-1">
                   {phoneNumbers.map((num) => (
                     <a

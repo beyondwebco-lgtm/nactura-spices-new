@@ -59,9 +59,9 @@ export default function FounderSection() {
             </p>
             
             <div className="border-l-2 border-[#C89B3C] pl-6 py-2">
-              <h4 className="text-xl text-[#F5F5F5] font-serif tracking-wider mb-1">
+              <h3 className="text-xl text-[#F5F5F5] font-serif tracking-wider mb-1">
                 SHARATH R
-              </h4>
+              </h3>
               <p className="text-[#C89B3C]/80 text-sm tracking-widest uppercase">
                 Owner & Founder
               </p>
