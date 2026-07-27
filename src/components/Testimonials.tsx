@@ -82,7 +82,7 @@ export default function Testimonials() {
                 <h4 className="font-serif text-base md:text-lg text-[#E8C777] font-bold">
                   {testimonials[activeIndex].author}
                 </h4>
-                <p className="text-xs text-[#F5F5F5]/40 tracking-widest uppercase mt-1">
+                <p className="text-xs text-[#F5F5F5]/70 tracking-widest uppercase mt-1">
                   {testimonials[activeIndex].location}
                 </p>
               </div>
@@ -99,8 +99,9 @@ export default function Testimonials() {
                 setActiveIndex(i);
                 startAutoPlay();
               }}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${
-                activeIndex === i ? "bg-[#C89B3C] w-8" : "bg-[#F5F5F5]/20 hover:bg-[#C89B3C]/50"
+              aria-label={`Go to testimonial slide ${i + 1}`}
+              className={`h-3 rounded-full transition-all duration-500 ${
+                activeIndex === i ? "bg-[#C89B3C] w-8" : "bg-[#F5F5F5]/40 hover:bg-[#C89B3C]/50 w-3"
               }`}
             />
           ))}

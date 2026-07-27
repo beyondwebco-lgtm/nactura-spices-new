@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="text-[10px] text-[#F5F5F5]/40 tracking-wider">
+          <p className="text-[10px] text-[#F5F5F5]/70 tracking-wider">
             &copy; {currentYear} NACTURA Spices & Dry Fruits. All Rights Reserved. Sourced from Idukki, Packed with Love.
           </p>
         </div>

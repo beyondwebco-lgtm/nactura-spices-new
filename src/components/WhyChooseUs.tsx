@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
               <h4 className="font-serif text-sm md:text-base text-[#F5F5F5] mb-2 group-hover:text-[#E8C777] transition-colors duration-300">
                 {feature.title}
               </h4>
-              <p className="text-[#F5F5F5]/40 text-xs leading-relaxed">
+              <p className="text-[#F5F5F5]/70 text-xs leading-relaxed">
                 {feature.desc}
               </p>
             </motion.div>
