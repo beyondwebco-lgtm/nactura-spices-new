@@ -7,12 +7,13 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import Preloader from "@/components/Preloader";
 
-const AboutSection = dynamic(() => import("@/components/AboutSection"), { ssr: true });
-const ProductCategories = dynamic(() => import("@/components/ProductCategories"), { ssr: true });
-const IndividualSpices = dynamic(() => import("@/components/IndividualSpices"), { ssr: true });
-const FeaturedSection = dynamic(() => import("@/components/FeaturedSection"), { ssr: true });
-const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"), { ssr: true });
-const FounderSection = dynamic(() => import("@/components/FounderSection"), { ssr: true });
+import AboutSection from "@/components/AboutSection";
+import ProductCategories from "@/components/ProductCategories";
+import IndividualSpices from "@/components/IndividualSpices";
+import FeaturedSection from "@/components/FeaturedSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import FounderSection from "@/components/FounderSection";
+
 const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
 const MeeshoSection = dynamic(() => import("@/components/MeeshoSection"), { ssr: true });
 const ContactSection = dynamic(() => import("@/components/ContactSection"), { ssr: true });
