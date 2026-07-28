@@ -94,7 +94,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
               className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden"
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo_preload.webp"
                 alt="Nactura Preloader"
                 className="object-cover w-full h-full"
                 loading="eager"
