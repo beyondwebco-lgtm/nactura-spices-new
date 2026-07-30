@@ -69,7 +69,6 @@ export default function IndividualSpices() {
               <h3 className="font-serif text-lg md:text-xl text-[#0A321E] mb-2 group-hover:text-[#D4AF37] transition-colors duration-300 font-bold">
                 {spice.name}
               </h3>
-              <p className="text-sm font-semibold text-[#D4AF37] mb-2">{spice.price}</p>
               <p className="text-xs text-[#0A321E]/60 tracking-wider">
                 {spice.aka}
               </p>

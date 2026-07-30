@@ -76,7 +76,6 @@ export default function ComboOffers() {
                 <p className="text-sm text-[#0A321E]/70 mb-4 h-12">
                   {combo.description}
                 </p>
-                <div className="text-[#D4AF37] font-semibold text-2xl mb-6">{combo.price}</div>
                 <button
                   onClick={() => window.open(generateWhatsAppLink(combo.name), "_blank")}
                   className="w-full py-3 bg-[#0A321E] text-[#D4AF37] text-sm tracking-widest uppercase font-medium hover:bg-[#D4AF37] hover:text-white transition-all duration-300 flex items-center justify-center gap-2"

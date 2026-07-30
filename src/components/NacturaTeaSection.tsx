@@ -49,13 +49,10 @@ export default function NacturaTeaSection() {
             <p className="text-[#0A321E]/70 text-lg mb-8 leading-relaxed">
               Experience the perfect blend of tradition and taste. Handpicked leaves from the misty hills, offering an authentic, refreshing, and aromatic cup of premium tea that revitalizes your senses.
             </p>
-            
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <div className="text-[#0A321E] font-bold text-3xl font-serif">₹249</div>
-              <div className="hidden sm:block w-px h-8 bg-[#D4AF37]/40"></div>
               <button
                 onClick={() => window.open("https://wa.me/918870107301?text=Hello NACTURA, I am interested in NACTURA Premium Tea.", "_blank")}
-                className="px-8 py-4 bg-[#0A321E] text-[#D4AF37] text-sm tracking-widest uppercase font-medium hover:bg-[#D4AF37] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 hover-gold-glow"
+                className="px-8 py-4 bg-[#0A321E] text-[#D4AF37] text-sm tracking-widest uppercase font-medium hover:bg-[#D4AF37] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 hover-gold-glow w-full sm:w-auto"
               >
                 <FaWhatsapp size={18} /> Order Now
               </button>

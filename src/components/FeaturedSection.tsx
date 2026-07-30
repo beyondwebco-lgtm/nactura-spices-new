@@ -78,22 +78,18 @@ export default function FeaturedSection() {
                 kapok bud, nutmeg, and cumin — all in one premium box.
               </p>
 
-              {/* Price Grid */}
+              {/* Weight Grid */}
               <div className="grid grid-cols-3 gap-3 mb-8">
-                {[
-                  { weight: "25g", price: "₹699" },
-                  { weight: "50g", price: "₹999" },
-                  { weight: "100g", price: "₹1799" },
-                ].map((p) => (
+                {["25g", "50g", "100g"].map((w) => (
                   <div
-                    key={p.weight}
-                    className="text-center py-3 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
+                    key={w}
+                    className="text-center py-4 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
                   >
-                    <div className="text-[#D4AF37] font-serif text-lg font-bold">
-                      {p.price}
+                    <div className="text-[#0A321E] font-serif text-lg font-bold">
+                      {w}
                     </div>
                     <div className="text-[#0A321E]/60 text-[10px] tracking-wider uppercase font-bold mt-1">
-                      {p.weight} Combo
+                      Combo Pack
                     </div>
                   </div>
                 ))}
@@ -149,22 +145,18 @@ export default function FeaturedSection() {
                 and dried apricots — premium quality guaranteed.
               </p>
 
-              {/* Price Grid */}
+              {/* Weight Grid */}
               <div className="grid grid-cols-3 gap-3 mb-8">
-                {[
-                  { weight: "100g", price: "₹899" },
-                  { weight: "250g", price: "₹1799" },
-                  { weight: "500g", price: "₹3499" },
-                ].map((p) => (
+                {["100g", "250g", "500g"].map((w) => (
                   <div
-                    key={p.weight}
-                    className="text-center py-3 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
+                    key={w}
+                    className="text-center py-4 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
                   >
-                    <div className="text-[#D4AF37] font-serif text-lg font-bold">
-                      {p.price}
+                    <div className="text-[#0A321E] font-serif text-lg font-bold">
+                      {w}
                     </div>
                     <div className="text-[#0A321E]/60 text-[10px] tracking-wider uppercase font-bold mt-1">
-                      {p.weight} Combo
+                      Combo Pack
                     </div>
                   </div>
                 ))}
