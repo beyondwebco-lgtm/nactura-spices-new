@@ -39,7 +39,7 @@ export default function HeroSection() {
           <div
             key={slide}
             className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-              idx === currentSlide ? "opacity-35" : "opacity-0"
+              idx === currentSlide ? "opacity-75" : "opacity-0"
             }`}
           >
             <Image
@@ -53,7 +53,7 @@ export default function HeroSection() {
           </div>
         ))}
         {/* Subtle light vignette overlay to ensure text is fully readable */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,250,250,0.75)_0%,rgba(250,250,250,0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,250,250,0.4)_0%,rgba(250,250,250,0.7)_100%)]" />
       </div>
 
       {/* Hero Content */}
