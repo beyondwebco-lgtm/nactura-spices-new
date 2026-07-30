@@ -31,7 +31,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#FAFAFA]">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030705]">
       
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -52,8 +52,8 @@ export default function HeroSection() {
             />
           </div>
         ))}
-        {/* Subtle light vignette overlay to ensure text is fully readable */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,250,250,0.4)_0%,rgba(250,250,250,0.7)_100%)]" />
+        {/* Subtle dark vignette overlay to ensure text is fully readable */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,7,5,0.4)_0%,rgba(3,7,5,0.92)_100%)]" />
       </div>
 
       {/* Hero Content */}
@@ -80,7 +80,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#0A321E]"
+          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#FFFFFF]"
         >
           NACTURA
         </motion.h1>
@@ -100,7 +100,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 1.2 }}
-          className="text-sm md:text-base text-[#0A321E]/70 italic font-serif tracking-wider mb-12"
+          className="text-sm md:text-base text-[#FFFFFF]/80 italic font-serif tracking-wider mb-12"
         >
           &quot;Purity in Every Pinch&quot;
         </motion.p>
@@ -114,14 +114,14 @@ export default function HeroSection() {
         >
           <button
             onClick={scrollToCatalog}
-            className="px-8 py-4 w-full sm:w-auto bg-transparent border border-[#0A321E] text-[#0A321E] text-xs sm:text-sm tracking-widest uppercase font-bold hover:bg-[#0A321E] hover:text-[#D4AF37] transition-all duration-500 hover-gold-glow text-center cursor-pointer"
+            className="px-8 py-4 w-full sm:w-auto bg-transparent border border-[#FFFFFF] text-[#FFFFFF] text-xs sm:text-sm tracking-widest uppercase font-bold hover:bg-[#FFFFFF] hover:text-[#0A321E] transition-all duration-500 hover-gold-glow text-center cursor-pointer"
           >
             Explore Collections
           </button>
           
           <button
             onClick={() => window.open("https://wa.me/918870107301?text=Hello%20NACTURA,%0A%0AI’m%20interested%20in%20ordering%0AProduct:%0AQuantity:%0A%0APlease%20share%20the%20details.", "_blank")}
-            className="px-10 py-4 bg-[#0A321E] text-[#D4AF37] text-sm tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-500 flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer"
+            className="px-10 py-4 bg-[#D4AF37] text-[#0A321E] text-sm tracking-widest uppercase font-bold hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:bg-[#F4C430] transition-all duration-500 flex items-center justify-center gap-3 w-full sm:w-auto cursor-pointer"
           >
             <FaWhatsapp size={20} />
             Order on WhatsApp
