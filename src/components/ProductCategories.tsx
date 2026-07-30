@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 
 const categories = [
@@ -43,6 +43,32 @@ function generateWhatsAppLink(product: string) {
   return `https://wa.me/918870107301?text=${msg}`;
 }
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+    }
+  }
+};
+
+const wordVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    filter: "blur(8px)"
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1.0]
+    }
+  }
+};
+
 export default function ProductCategories() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -56,17 +82,36 @@ export default function ProductCategories() {
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="text-center mb-24 max-w-3xl mx-auto"
         >
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
             Our Collections
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">
-            Curated <span className="text-gradient-gold font-bold">Premium</span> Collections
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-[#0A321E] leading-tight font-bold flex flex-wrap justify-center gap-x-3">
+            {"Discover Our Collection".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                variants={wordVariants}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            ))}
           </h2>
+          <p className="text-[#0A321E]/75 text-sm md:text-base leading-relaxed tracking-wider mb-8 max-w-xl mx-auto flex flex-wrap justify-center gap-x-2">
+            {"Crafted with premium ingredients, roasted to perfection, and designed for every craving.".split(" ").map((word, i) => (
+              <motion.span
+                key={i}
+                variants={wordVariants}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto" />
         </motion.div>
 
