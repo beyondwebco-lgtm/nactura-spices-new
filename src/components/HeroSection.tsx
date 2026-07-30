@@ -99,8 +99,24 @@ export default function HeroSection() {
   const galleryRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
-  const [hoveredProduct, setHoveredProduct] = useState<GalleryItem | null>(null);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [hoveredProduct, setHoveredProduct] = useState<GalleryItem | null>(null);
+
+  const slides = [
+    "/images/hero_1.jpg",
+    "/images/hero_2.jpg",
+    "/images/hero_3.jpg",
+    "/images/hero_4.jpg",
+    "/images/hero_5.jpg",
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   // Magnetic button hover properties using Framer Motion
   const btnX = useMotionValue(0);
@@ -234,8 +250,28 @@ export default function HeroSection() {
     <div ref={containerRef} className="relative z-20 bg-[#FAFAFA]">
       {/* Pinned 100vh Hero Container */}
       <div ref={pinRef} className="sticky top-0 h-screen overflow-hidden flex flex-col justify-between pt-6 pb-12">
-        {/* Cinematic subtle light gradient backgrounds */}
-        <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.06)_0%,rgba(250,250,250,1)_85%)]" />
+        {/* Cinematic subtle light gradient backgrounds and landscape slideshow */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {slides.map((slide, idx) => (
+            <div
+              key={slide}
+              className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
+                idx === currentSlide ? "opacity-25" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={slide}
+                alt="Plantation Background"
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority={idx === 0}
+              />
+            </div>
+          ))}
+          {/* Subtle light vignette overlay to ensure text is fully readable */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(250,250,250,0.8)_0%,rgba(250,250,250,0.92)_100%)]" />
+        </div>
 
         {/* Ambient Top logo header */}
         <header className="relative z-30 container mx-auto px-12 flex justify-between items-center h-20">
