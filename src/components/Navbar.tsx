@@ -48,12 +48,12 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <Link href="/" className="relative z-50 flex items-center gap-3 group">
-            <div className="relative w-12 h-12 overflow-hidden rounded-full border border-[#D4AF37]/40 group-hover:border-[#D4AF37] transition-colors duration-500">
+            <div className="relative w-12 h-12 overflow-hidden">
               <Image
                 src="/images/logo.png"
                 alt="Nactura Logo"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="flex flex-col">

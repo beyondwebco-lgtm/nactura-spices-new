@@ -19,12 +19,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 items-center text-center md:text-left">
           {/* Logo Brand */}
           <div className="flex flex-col items-center md:items-start gap-4">
-            <div className="relative w-16 h-16 rounded-full border border-[#D4AF37]/40 overflow-hidden">
+            <div className="relative w-16 h-16 overflow-hidden">
               <Image
                 src="/images/logo.png"
                 alt="Nactura Spices"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div>
