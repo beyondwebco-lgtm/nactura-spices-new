@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaArrowLeft, FaTimes, FaSearch, FaPhone } from "react-icons/fa";
+import { FaWhatsapp, FaTimes, FaSearch, FaPhone } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import Lenis from "lenis";
