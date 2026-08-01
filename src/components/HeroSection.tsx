@@ -9,11 +9,11 @@ export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    "/images/hero_1.jpg",
-    "/images/hero_2.jpg",
-    "/images/hero_3.jpg",
-    "/images/hero_4.jpg",
-    "/images/hero_5.jpg",
+    "/images/12 premium spices.jpeg",
+    "/images/7 premium dry fruits.jpeg",
+    "/images/12 premium spices 2.jpeg",
+    "/images/premium dry fruits.jpeg",
+    "/images/WhatsApp Image 2026-08-01 at 11.15.08 PM.jpeg",
   ];
 
   useEffect(() => {

@@ -10,13 +10,13 @@ const combos = [
     name: "Premium Spices Combo",
     description: "A curated collection of our finest Idukki spices, perfect for gifting or stocking your luxury kitchen.",
     price: "₹1499",
-    image: "/images/All Spices.jpeg",
+    image: "/images/12 premium spices.jpeg",
   },
   {
     name: "Luxury Dry Fruits Box",
     description: "Hand-selected, premium grade dry fruits packed with nutrients and unmatched taste.",
     price: "₹1899",
-    image: "/images/ALL Dry fruits.jpeg",
+    image: "/images/7 premium dry fruits.jpeg",
   }
 ];
 

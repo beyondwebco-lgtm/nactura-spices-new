@@ -10,14 +10,14 @@ const categories = [
     title: "Premium Spice Combos",
     subtitle: "12 Handpicked Varieties",
     description: "A curated collection of 12 premium spices sourced directly from the hills of Idukki. Each spice is handpicked for maximum aroma and purity.",
-    image: "/images/All Spices.jpeg",
+    image: "/images/12 premium spices.jpeg",
     tag: "Best Seller",
   },
   {
     title: "Premium Dry Fruits",
     subtitle: "7 Exquisite Selections",
     description: "Jumbo cashews, golden almonds, whole walnuts, dates, pistachios, raisins, and apricots — each one selected for unmatched quality.",
-    image: "/images/ALL Dry fruits.jpeg",
+    image: "/images/premium dry fruits.jpeg",
     tag: "Premium",
   },
   {

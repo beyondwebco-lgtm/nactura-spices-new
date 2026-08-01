@@ -51,7 +51,7 @@ export default function FeaturedSection() {
           >
             <div className="relative w-full h-80 overflow-hidden">
               <Image
-                src="/images/spices_combo.png"
+                src="/images/12 premium spices 2.jpeg"
                 alt="12 Premium Spices Combo"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -119,7 +119,7 @@ export default function FeaturedSection() {
           >
             <div className="relative w-full h-80 overflow-hidden">
               <Image
-                src="/images/dryfruits_combo.png"
+                src="/images/7 premium dry fruits.jpeg"
                 alt="7 Premium Dry Fruits Combo"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

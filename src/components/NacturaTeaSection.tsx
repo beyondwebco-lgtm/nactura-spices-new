@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { FaLeaf, FaWhatsapp } from "react-icons/fa";
 
@@ -19,17 +20,18 @@ export default function NacturaTeaSection() {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2"
           >
-            <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none rounded-full overflow-hidden border-8 border-white shadow-2xl flex items-center justify-center bg-gradient-to-tr from-[#0A321E] to-[#145C38]">
-              <div className="text-center p-8">
-                <FaLeaf className="text-[#D4AF37] text-6xl md:text-8xl mx-auto mb-6 opacity-80" />
-                <h3 className="font-serif text-3xl md:text-5xl text-white font-bold tracking-widest uppercase">
-                  Nactura
-                </h3>
-                <h4 className="font-serif text-xl md:text-2xl text-[#D4AF37] mt-2 italic">
-                  Premium Tea
-                </h4>
+            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden border-4 border-[#D4AF37]/30 shadow-2xl group bg-white">
+              <Image
+                src="/images/WhatsApp Image 2026-08-01 at 11.15.07 PM.jpeg"
+                alt="Nactura Premium Elachi Tea"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                priority
+              />
+              <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-[#D4AF37] text-white text-[10px] tracking-widest uppercase font-bold rounded">
+                Natural Elachi Flavour
               </div>
-              <div className="absolute inset-0 bg-[#D4AF37]/10 mix-blend-overlay rounded-full"></div>
             </div>
           </motion.div>
 

@@ -6,11 +6,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 
 const spices = [
-  { name: "Cardamom", tamil: "ஏலக்காய்", aka: "Elaichi", price: "₹299", image: "/images/cardamom_single.png" },
+  { name: "Cardamom", tamil: "ஏலக்காய்", aka: "Elaichi", price: "₹299", image: "/images/cardamom.jpeg" },
   { name: "Black Pepper", tamil: "மிளகு", aka: "Pepper", price: "₹199", image: "/images/black_pepper_single.png" },
   { name: "Cinnamon", tamil: "பட்டை", aka: "Pattai", price: "₹149", image: "/images/cinnamon_single.png" },
-  { name: "Clove", tamil: "கிராம்பு", aka: "Grambu", price: "₹349", image: "/images/clove_single.png" },
-  { name: "Honey Mixed Dry Fruits", tamil: "தேன் உலர் பழங்கள்", aka: "Dry Fruits Honey", price: "₹499", image: "/images/honey.png" },
+  { name: "Clove", tamil: "கிராம்பு", aka: "Grambu", price: "₹349", image: "/images/cloves.jpeg" },
+  { name: "Honey Mixed Dry Fruits", tamil: "தேன் உலர் பழங்கள்", aka: "Dry Fruits Honey", price: "₹499", image: "/images/kismis.jpeg" },
   { name: "Millet Laddus", tamil: "தினை லட்டு", aka: "Healthy Laddus", price: "₹199", image: "/images/millet_laddus.png" },
 ];
 
