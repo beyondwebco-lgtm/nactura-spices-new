@@ -14,8 +14,6 @@ export default function HeroSection() {
     "/images/hero_3.jpg",
     "/images/hero_4.jpg",
     "/images/hero_5.jpg",
-    "/images/tea_banner.jpeg",
-    "/images/spices_combo_poster.jpeg",
   ];
 
   useEffect(() => {
