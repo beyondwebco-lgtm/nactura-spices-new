@@ -290,6 +290,21 @@ const products: Product[] = [
   },
   // Dry fruits
   {
+    id: "dryfruits-combo",
+    name: "7 Premium Dry Fruits Combo",
+    category: "dryfruits",
+    subtitle: "Premium Nutrient Box",
+    description: "A luxury selection of 7 premium grade dry fruits selected for unmatched quality and freshness: jumbo cashews, golden almonds, whole walnuts, pulpy dates, green pistachios, seedless raisins, and dried apricots.",
+    uses: "Perfect for healthy gifting, daily nutritional snack, and premium festive gifting.",
+    benefits: "Rich in healthy fats, high fiber, essential vitamins, and minerals. Boosts immunity and brain health.",
+    weights: ["100g Combo", "250g Combo", "500g Combo"],
+    image: "/images/7 premium dry fruits.jpeg",
+    images: ["/images/7 premium dry fruits.jpeg", "/images/premium dry fruits.jpeg", "/images/saffron and spices mix.jpeg", "/images/wholesome grains.jpeg"],
+    aromaProfile: "Rich, nutty, and naturally sweet assortment",
+    storageRec: "Keep in a cool dry space in airtight containers to preserve crunch",
+    badge: "Best Seller",
+  },
+  {
     id: "cashew",
     name: "Cashew",
     category: "dryfruits",
