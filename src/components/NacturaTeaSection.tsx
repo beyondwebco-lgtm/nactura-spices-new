@@ -22,7 +22,7 @@ export default function NacturaTeaSection() {
           >
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden border-4 border-[#D4AF37]/30 shadow-2xl group bg-white">
               <Image
-                src="/images/WhatsApp Image 2026-08-01 at 11.15.07 PM.jpeg"
+                src="/images/elachi tea poster.jpeg"
                 alt="Nactura Premium Elachi Tea"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
