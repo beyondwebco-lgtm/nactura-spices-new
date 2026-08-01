@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaWhatsapp, FaTimes, FaSearch, FaPhone } from "react-icons/fa";
+import { FaWhatsapp, FaTimes, FaSearch, FaPhone, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import Lenis from "lenis";
@@ -23,6 +23,7 @@ interface Product {
   benefits: string;
   weights: string[];
   image: string;
+  images: string[];
   aromaProfile?: string;
   storageRec?: string;
   badge?: string;
@@ -41,6 +42,7 @@ const products: Product[] = [
     benefits: "Rich in antioxidants, aids digestion, boosts metabolism, and builds immunity.",
     weights: ["25g Combo", "50g Combo", "100g Combo"],
     image: "/images/12 premium spices.jpeg",
+    images: ['/images/12 premium spices.jpeg', '/images/12 premium spices 2.jpeg', '/images/spices bowl.jpeg', '/images/spices bowl flatlay.jpeg', '/images/spices spoons.jpeg', '/images/roasted spices mix.jpeg', '/images/wooden bowl spices.jpeg'],
     aromaProfile: "Rich, complex, and intensely fragrant spice harmony",
     storageRec: "Store in a cool, dry place inside an airtight glass container",
     badge: "Best Seller",
@@ -56,6 +58,7 @@ const products: Product[] = [
     benefits: "Natural mouth freshener, improves digestion, lowers blood pressure.",
     weights: ["50g", "100g", "250g"],
     image: "/images/cardamom.jpeg",
+    images: ['/images/cardamom.jpeg', '/images/green cardamom pods.jpeg', '/images/green cardamom harvest.jpeg', '/images/cardamom pod close-up.jpeg', '/images/cardamom plantation.jpeg'],
     aromaProfile: "Sweet, minty, citrusy, and extremely floral",
     storageRec: "Store in cool airtight jars away from sunlight",
     badge: "100% Organic",
@@ -70,6 +73,7 @@ const products: Product[] = [
     benefits: "Boosts nutrient absorption, supports gut health, pain-relieving properties.",
     weights: ["50g", "100g", "250g"],
     image: "/images/black_pepper_single.png",
+    images: ['/images/black_pepper_single.png', '/images/black pepper berries.jpeg', '/images/black pepper seeds.jpeg'],
     aromaProfile: "Pungent, woody, and intensely hot",
     storageRec: "Keep in a dark, dry container to preserve oils",
     badge: "Top Grade",
@@ -84,6 +88,7 @@ const products: Product[] = [
     benefits: "Regulates blood sugar levels, anti-inflammatory, improves heart health.",
     weights: ["50g", "100g"],
     image: "/images/cinnamon_single.png",
+    images: ['/images/cinnamon_single.png', '/images/cinnamon bark.jpeg'],
     aromaProfile: "Sweet, woody, and classic warm aroma",
     storageRec: "Airtight jar in a cool pantry cupboard",
     badge: "Premium Quality",
@@ -98,6 +103,7 @@ const products: Product[] = [
     benefits: "Aids digestion, full of antioxidants, supports dental hygiene.",
     weights: ["50g", "100g"],
     image: "/images/cinnamon_single.png",
+    images: ['/images/cinnamon_single.png', '/images/cinnamon bark.jpeg'],
     aromaProfile: "Highly fragrant, sweet, and decorative",
     storageRec: "Store quills vertically in tall glass containers",
     badge: "Selected Grade",
@@ -112,6 +118,7 @@ const products: Product[] = [
     benefits: "Safest cinnamon for daily long-term use, highly anti-diabetic, fights free radicals.",
     weights: ["50g", "100g"],
     image: "/images/cinnamon_single.png",
+    images: ['/images/cinnamon_single.png', '/images/cinnamon bark.jpeg'],
     aromaProfile: "Delicate, sweet, and warm subtle notes",
     storageRec: "Store in a cool dry space away from direct light",
     badge: "Import Grade",
@@ -126,6 +133,7 @@ const products: Product[] = [
     benefits: "Excellent for toothaches, high antioxidant content, protects liver.",
     weights: ["50g", "100g"],
     image: "/images/cloves.jpeg",
+    images: ['/images/cloves.jpeg', '/images/cloves_spice.jpeg', '/images/whole cloves.jpeg'],
     aromaProfile: "Intensely pungent, warm, and highly medicinal",
     storageRec: "Store in airtight jar in cool dark place",
     badge: "High Eugenol",
@@ -140,6 +148,7 @@ const products: Product[] = [
     benefits: "Fights flu, rich in shikimic acid, promotes respiratory health.",
     weights: ["50g", "100g"],
     image: "/images/spices_combo.png",
+    images: ['/images/star anise.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Sweet, licorice-like, and highly aromatic",
     storageRec: "Store in small spice jars in cool location",
     badge: "Export Quality",
@@ -154,6 +163,7 @@ const products: Product[] = [
     benefits: "Relieves joint pain, treats insomnia, improves brain function.",
     weights: ["25g", "50g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Delicately sweet, warm, nutmeg-like but lighter",
     storageRec: "Airtight containers in dark areas",
     badge: "Rare Selection",
@@ -168,6 +178,7 @@ const products: Product[] = [
     benefits: "Induces sleep, rich in protein, promotes skin health.",
     weights: ["50g", "100g"],
     image: "/images/spices_combo.png",
+    images: ['/images/poppy seeds.jpeg', '/images/sunflower seeds.jpeg', '/images/seeds assortment.jpeg'],
     aromaProfile: "Nutty, mild, and rich when crushed",
     storageRec: "Keep in a cool place or refrigerator to preserve freshness",
     badge: "Pure White",
@@ -182,6 +193,7 @@ const products: Product[] = [
     benefits: "Improves digestion, supports heart wellness, helps clear congestion.",
     weights: ["25g", "50g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Herbal, floral, slightly sweet, and woodsy",
     storageRec: "Store dry leaves flat to avoid cracking",
     badge: "Wild Grown",
@@ -196,6 +208,7 @@ const products: Product[] = [
     benefits: "Excellent cure for morning sickness and indigestion, anti-cold.",
     weights: ["50g", "100g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Warm, spicy, sweet, and highly invigorating",
     storageRec: "Keep in a dry container away from moisture",
     badge: "Immunity Booster",
@@ -210,6 +223,7 @@ const products: Product[] = [
     benefits: "Anti-diarrheal, highly anti-inflammatory, helps relieve gas.",
     weights: ["50g", "100g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Earthy, mustard-like, warm, and highly complex",
     storageRec: "Store in a cool dark spice drawer",
     badge: "Estate Harvest",
@@ -224,6 +238,7 @@ const products: Product[] = [
     benefits: "Induces deep sleep, improves concentration, detoxifies kidneys.",
     weights: ["50g", "100g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Sweet, nutty, warm, and highly aromatic",
     storageRec: "Store whole seeds in small jars; grate only when needed",
     badge: "Premium Whole",
@@ -238,6 +253,7 @@ const products: Product[] = [
     benefits: "Very rich in iron, aids fat loss, improves digestion and digestion-enzyme activity.",
     weights: ["100g", "250g"],
     image: "/images/jeera.jpeg",
+    images: ['/images/jeera.jpeg', '/images/fennel seeds.jpeg'],
     aromaProfile: "Earthy, warm, woody, and slightly bitter",
     storageRec: "Store in dry airtight glass containers",
     badge: "High Oil Content",
@@ -252,6 +268,7 @@ const products: Product[] = [
     benefits: "Purifies blood, regulates water retention, controls bad breath.",
     weights: ["100g", "250g"],
     image: "/images/spices_combo.png",
+    images: ['/images/fennel seeds.jpeg', '/images/jeera.jpeg'],
     aromaProfile: "Sweet, licorice-like, refreshing",
     storageRec: "Keep in a cool dry spice jar",
     badge: "Clean Quality",
@@ -266,6 +283,7 @@ const products: Product[] = [
     benefits: "Promotes kidney health, heals minor skin wounds, anti-bacterial.",
     weights: ["25g", "50g"],
     image: "/images/spices_combo.png",
+    images: ['/images/spices_bowl_single.jpeg', '/images/spices bowl.jpeg'],
     aromaProfile: "Earthy, musky, forest-like, and savory",
     storageRec: "Airtight containers away from high humidity",
     badge: "Lichen Grade A",
@@ -281,6 +299,7 @@ const products: Product[] = [
     benefits: "Good for brain health, source of copper and magnesium.",
     weights: ["250g", "500g", "1kg"],
     image: "/images/cashew.jpeg",
+    images: ['/images/cashew.jpeg', '/images/7 premium dry fruits.jpeg', '/images/premium dry fruits.jpeg'],
     aromaProfile: "Creamy, buttery, and fresh",
     storageRec: "Store in air-tight container or keep refrigerated",
     badge: "Jumbo Grade",
@@ -295,6 +314,7 @@ const products: Product[] = [
     benefits: "High in Vitamin E, improves memory, good for skin and hair health.",
     weights: ["250g", "500g", "1kg"],
     image: "/images/almonds.jpeg",
+    images: ['/images/almonds.jpeg', '/images/7 premium dry fruits.jpeg', '/images/premium dry fruits.jpeg'],
     aromaProfile: "Nutty, earthy, and crispy",
     storageRec: "Airtight jar in a cool place",
     badge: "Nutrient Rich",
@@ -309,6 +329,7 @@ const products: Product[] = [
     benefits: "Rich in Omega-3 fatty acids, supports cognitive function.",
     weights: ["200g", "500g"],
     image: "/images/walnut.jpeg",
+    images: ['/images/walnut.jpeg', '/images/walnuts kernels.jpeg', '/images/7 premium dry fruits.jpeg'],
     aromaProfile: "Earthy, rich, and mildly tannic",
     storageRec: "Keep refrigerated for long-term storage to prevent rancidity",
     badge: "Halves Grade",
@@ -323,6 +344,7 @@ const products: Product[] = [
     benefits: "Great for weight management, high lutein for eye health.",
     weights: ["250g", "500g"],
     image: "/images/pista.jpeg",
+    images: ['/images/pista.jpeg', '/images/7 premium dry fruits.jpeg', '/images/premium dry fruits.jpeg'],
     aromaProfile: "Salty, nutty, roasted goodness",
     storageRec: "Keep in a moisture-free glass jar",
     badge: "Shell-on Premium",
@@ -337,6 +359,7 @@ const products: Product[] = [
     benefits: "Instant energy booster, highly rich in iron and fiber.",
     weights: ["500g", "1kg"],
     image: "/images/ALL Dry fruits.jpeg",
+    images: ['/images/dates_single.jpeg', '/images/dates sweet bites.jpeg', '/images/7 premium dry fruits.jpeg'],
     aromaProfile: "Rich caramel sweetness",
     storageRec: "Store in a cool dry cupboard or refrigerator",
     badge: "Medjool Soft",
@@ -351,6 +374,7 @@ const products: Product[] = [
     benefits: "Supports digestion, cleanses system, high in calcium.",
     weights: ["250g", "500g"],
     image: "/images/kismis.jpeg",
+    images: ['/images/kismis.jpeg', '/images/7 premium dry fruits.jpeg', '/images/premium dry fruits.jpeg'],
     aromaProfile: "Sweet and mildly tart",
     storageRec: "Airtight jars inside dark pantry",
     badge: "Seedless Choice",
@@ -365,6 +389,7 @@ const products: Product[] = [
     benefits: "Excellent for eye health, full of iron and vitamin A.",
     weights: ["250g", "500g"],
     image: "/images/ALL Dry fruits.jpeg",
+    images: ['/images/ALL Dry fruits.jpeg', '/images/7 premium dry fruits.jpeg', '/images/premium dry fruits.jpeg'],
     aromaProfile: "Tangy, sweet, and deeply fruity",
     storageRec: "Keep in an airtight jar to preserve soft texture",
     badge: "Plump Sun-Dried",
@@ -380,6 +405,7 @@ const products: Product[] = [
     benefits: "Anti-bacterial, rich source of natural enzymes, boosts immunity, heals sore throats.",
     weights: ["250g", "500g"],
     image: "/images/honey.png",
+    images: ['/images/honey.png', '/images/dates sweet bites.jpeg'],
     aromaProfile: "Warm, sweet, and floral woodsy notes",
     storageRec: "Keep at room temperature. Honey preserves naturally",
     badge: "Wild Raw",
@@ -394,6 +420,7 @@ const products: Product[] = [
     benefits: "High in antioxidants, healthy fats, vitamins, and minerals. Instant energy boost.",
     weights: ["250g", "500g", "1kg"],
     image: "/images/honey.png",
+    images: ['/images/honey.png', '/images/dates sweet bites.jpeg'],
     aromaProfile: "Sweet, nutty, and rich caramelized honey",
     storageRec: "Keep at room temperature. Do not refrigerate.",
     badge: "New Arrival",
@@ -409,6 +436,7 @@ const products: Product[] = [
     benefits: "No refined sugar, gluten-friendly, high in dietary fiber, low glycemic index.",
     weights: ["250g Box", "500g Box"],
     image: "/images/millet_laddus.png",
+    images: ['/images/millet_laddus.png', '/images/millet laddus box.jpeg'],
     aromaProfile: "Nutty, toasted grains with rich cardamon ghee aroma",
     storageRec: "Store in dry cool space; consume within 30 days",
     badge: "7 Grains",
@@ -421,6 +449,156 @@ function generateWhatsAppLink(productName: string) {
     `Hello NACTURA,\nI would like to enquire about the following product:\nProduct:\n${productName}\nPlease share:\n• Price\n• Available Weight\n• Delivery Details\n• Stock Availability\nThank you.`
   );
   return `https://wa.me/918870107301?text=${msg}`;
+}
+
+function ProductGallery({ images, productName }: { images: string[]; productName: string }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
+  const [isZoomed, setIsZoomed] = useState(false);
+  const touchStart = useRef<number | null>(null);
+
+  const galleryImages = images && images.length > 0 ? images : ["/images/spices_combo.png"];
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % galleryImages.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [galleryImages]);
+
+  // Touch Swipe navigation
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStart.current === null) return;
+    const diff = touchStart.current - e.changedTouches[0].clientX;
+    if (diff > 50) {
+      handleNext();
+    } else if (diff < -50) {
+      handlePrev();
+    }
+    touchStart.current = null;
+  };
+
+  // Zoom Effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomPos({ x, y });
+  };
+
+  return (
+    <div className="flex flex-col gap-6 w-full">
+      {/* Main image container */}
+      <div 
+        className="relative w-full aspect-[4/3] sm:aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-[#D4AF37]/20 bg-white group cursor-zoom-in"
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsZoomed(true)}
+        onMouseLeave={() => setIsZoomed(false)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Main image with Framer Motion slide-fade */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="w-full h-full relative"
+            style={{
+              transformOrigin: `${zoomPos.x}% ${zoomPos.y}%`,
+              transform: isZoomed ? "scale(1.8)" : "scale(1)",
+              transition: isZoomed ? "transform 0.05s ease-out" : "transform 0.3s ease-out"
+            }}
+          >
+            <Image
+              src={galleryImages[activeIndex]}
+              alt={`${productName} - Image ${activeIndex + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+              className="object-contain p-4"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Floating Arrows */}
+        {galleryImages.length > 1 && (
+          <>
+            <button
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[#0A321E] hover:bg-white/40 hover:scale-105 transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 opacity-100"
+              aria-label="Previous image"
+            >
+              <FaChevronLeft size={16} />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-[#0A321E] hover:bg-white/40 hover:scale-105 transition-all duration-300 md:opacity-0 md:group-hover:opacity-100 opacity-100"
+              aria-label="Next image"
+            >
+              <FaChevronRight size={16} />
+            </button>
+          </>
+        )}
+
+        {/* Pagination Indicator dots */}
+        {galleryImages.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {galleryImages.map((_, idx) => (
+              <span
+                key={idx}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  idx === activeIndex ? "w-4 bg-[#D4AF37]" : "w-1.5 bg-[#0A321E]/30"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Thumbnails strip */}
+      {galleryImages.length > 1 && (
+        <div className="flex gap-3 overflow-x-auto py-1 scrollbar-thin scrollbar-thumb-[#D4AF37]/30">
+          {galleryImages.map((img, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className={`relative w-16 h-16 rounded-lg overflow-hidden border bg-white flex-shrink-0 transition-all duration-300 ${
+                idx === activeIndex 
+                  ? "border-[#D4AF37] ring-2 ring-[#D4AF37]/30" 
+                  : "border-gray-200 hover:border-gray-400"
+              }`}
+            >
+              <Image
+                src={img}
+                alt={`${productName} thumbnail ${idx + 1}`}
+                fill
+                sizes="64px"
+                className="object-contain p-1"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function CollectionsPage() {
@@ -674,13 +852,8 @@ export default function CollectionsPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
                     {/* Left image column */}
-                    <div className="relative w-full h-80 md:h-[400px] overflow-hidden border border-[#D4AF37]/20 bg-white rounded-lg">
-                      <Image
-                        src={selectedProduct.image}
-                        alt={selectedProduct.name}
-                        fill
-                        className="object-cover"
-                      />
+                    <div className="w-full">
+                      <ProductGallery images={selectedProduct.images} productName={selectedProduct.name} />
                     </div>
 
                     {/* Right details column */}
