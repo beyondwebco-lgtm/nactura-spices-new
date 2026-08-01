@@ -57,10 +57,14 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-xl tracking-widest text-[#0A321E] uppercase font-bold">
+              <span className={`font-serif text-xl tracking-widest uppercase font-bold transition-colors duration-500 ${
+                isScrolled ? "text-[#0A321E]" : "text-white"
+              }`}>
                 Nactura
               </span>
-              <span className="text-[10px] tracking-[0.2em] text-[#0A321E]/70 uppercase">
+              <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors duration-500 ${
+                isScrolled ? "text-[#0A321E]/70" : "text-white/70"
+              }`}>
                 Spices & Dryfruits
               </span>
             </div>
@@ -72,17 +76,30 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium tracking-wider text-[#0A321E]/80 hover:text-[#D4AF37] transition-colors duration-300 uppercase"
+                className={`text-sm font-medium tracking-wider transition-colors duration-500 uppercase ${
+                  isScrolled ? "text-[#0A321E]/80 hover:text-[#D4AF37]" : "text-white/80 hover:text-[#D4AF37]"
+                }`}
               >
                 {link.name}
               </Link>
             ))}
-            <a href="https://instagram.com/Nactura_spices" target="_blank" rel="noopener noreferrer" className="text-[#0A321E]/80 hover:text-[#D4AF37] transition-colors duration-300">
+            <a 
+              href="https://instagram.com/Nactura_spices" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`transition-colors duration-500 ${
+                isScrolled ? "text-[#0A321E]/80 hover:text-[#D4AF37]" : "text-white/80 hover:text-[#D4AF37]"
+              }`}
+            >
               <FaInstagram size={20} />
             </a>
             <button
               onClick={() => window.open("https://wa.me/918870107301", "_blank")}
-              className="px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] text-sm tracking-wider uppercase font-medium hover:bg-[#D4AF37] hover:text-[#FFFFFF] transition-all duration-300 hover-gold-glow"
+              className={`px-6 py-2.5 border text-sm tracking-wider uppercase font-medium transition-all duration-500 hover-gold-glow ${
+                isScrolled 
+                  ? "border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#FFFFFF]"
+                  : "border-white text-white hover:bg-white hover:text-[#0A321E]"
+              }`}
             >
               Order Now
             </button>
