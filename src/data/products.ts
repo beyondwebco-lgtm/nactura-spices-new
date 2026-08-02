@@ -61,8 +61,8 @@ export const products: Product[] = [
     description: "Selected cinnamon bark offering a warm, sweet-spicy aroma suitable for everyday cooking.",
     uses: "Great for curries, stews, baking, and aromatic rice dishes.",
     benefits: "Brings rich depth and characteristic warmth to both sweet and savory recipes.",
-    image: "/images/catalog/cinnamon normal.jpg",
-    images: ["/images/catalog/cinnamon normal.jpg"],
+    image: "/images/catalog/Chinnamon Normal.png",
+    images: ["/images/catalog/Chinnamon Normal.png"],
   },
   {
     id: "cinnamon-ceylon",
@@ -72,8 +72,8 @@ export const products: Product[] = [
     description: "Delicate, multi-layered Ceylon cinnamon quills with a refined, subtle aroma.",
     uses: "Perfect for fine baking, warm infusions, beverages, and gourmet dishes.",
     benefits: "Revered for its delicate texture, subtle sweetness, and smooth fragrant notes.",
-    image: "/images/catalog/cinnamon silon.jpg",
-    images: ["/images/catalog/cinnamon silon.jpg"],
+    image: "/images/catalog/Cinnamon Ceylon.png",
+    images: ["/images/catalog/Cinnamon Ceylon.png"],
     badge: "Pure Ceylon",
   },
   {
@@ -84,8 +84,8 @@ export const products: Product[] = [
     description: "Elegantly rolled cinnamon quills selected for presentation and warm aromatics.",
     uses: "Excellent for visual garnishing, hot beverages, mulled drinks, and specialty cuisine.",
     benefits: "Combines visual elegance with a sweet, aromatic fragrance.",
-    image: "/images/catalog/cinnamon spring.jpg",
-    images: ["/images/catalog/cinnamon spring.jpg"],
+    image: "/images/catalog/Chinnamon Spring.png",
+    images: ["/images/catalog/Chinnamon Spring.png"],
   },
   {
     id: "clove",
@@ -199,7 +199,7 @@ export const products: Product[] = [
   },
 
   // -------------------------------------------------------------
-  // DRY FRUITS AND DRIED FRUITS (16 Products)
+  // DRY FRUITS AND DRIED FRUITS (17 Products)
   // -------------------------------------------------------------
   {
     id: "badam",
@@ -224,6 +224,18 @@ export const products: Product[] = [
     image: "/images/catalog/cashew.jpg",
     images: ["/images/catalog/cashew.jpg"],
     badge: "Jumbo Grade",
+  },
+  {
+    id: "walnut",
+    name: "Walnut",
+    category: "dryfruits",
+    subtitle: "Light Halves Walnut Kernels",
+    description: "Selected crisp whole walnut kernels, rich in natural nutty flavor.",
+    uses: "Great for snacking, baking, oatmeal topping, and dessert garnishing.",
+    benefits: "A classic wholesome nut filled with rich flavor and crisp crunch.",
+    image: "/images/catalog/walnut.png",
+    images: ["/images/catalog/walnut.png"],
+    badge: "Brain Food",
   },
   {
     id: "dates",
