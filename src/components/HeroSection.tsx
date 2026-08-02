@@ -31,7 +31,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030705]">
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#030705] pt-28 pb-16">
       
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -52,25 +52,25 @@ export default function HeroSection() {
             />
           </div>
         ))}
-        {/* Subtle dark vignette overlay to ensure text is fully readable */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,7,5,0.4)_0%,rgba(3,7,5,0.92)_100%)]" />
+        {/* Dark vignette overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,7,5,0.35)_0%,rgba(3,7,5,0.92)_100%)]" />
       </div>
 
       {/* Hero Content */}
       <div className="container relative z-10 mx-auto px-6 flex flex-col items-center text-center">
-        {/* Brand Logo */}
+        {/* Brand Logo - Enlarged & Perfectly Proportioned */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="mb-8 relative w-36 h-36 md:w-44 md:h-44"
+          className="mb-6 sm:mb-8 relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72"
         >
           <Image
             src="/images/logo.png"
-            alt="Nactura Luxury Spices"
+            alt="NACTURA Luxury Spices"
             fill
-            sizes="(max-width: 768px) 144px, 176px"
-            className="object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+            sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, (max-width: 1024px) 256px, 288px"
+            className="object-contain drop-shadow-[0_0_25px_rgba(212,175,55,0.35)]"
             priority
           />
         </motion.div>
@@ -80,7 +80,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-[#FFFFFF]"
+          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-3 text-[#FFFFFF]"
         >
           NACTURA
         </motion.h1>
@@ -100,7 +100,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 1.2 }}
-          className="text-sm md:text-base text-[#FFFFFF]/80 italic font-serif tracking-wider mb-12"
+          className="text-sm md:text-base text-[#FFFFFF]/80 italic font-serif tracking-wider mb-10"
         >
           &quot;Purity in Every Pinch&quot;
         </motion.p>

@@ -491,8 +491,20 @@ export const products: Product[] = [
   },
 
   // -------------------------------------------------------------
-  // COMBOS (10 Products)
+  // COMBOS & SPECIALTIES (11 Products)
   // -------------------------------------------------------------
+  {
+    id: "millet-laddus",
+    name: "Millet Laddus",
+    category: "combos",
+    subtitle: "7-Grain Wholesome Sweet",
+    description: "Artisan millet laddus crafted from 7 wholesome grains, organic jaggery, and pure ghee.",
+    uses: "A healthy sweet snack, post-workout energy bite, or festive treat.",
+    benefits: "No refined sugar, high fiber, wholesome grain nutrition.",
+    image: "/images/catalog/millet_laddus.png",
+    images: ["/images/catalog/millet_laddus.png", "/images/catalog/millet_laddus_box.jpeg"],
+    badge: "Healthy Sweets",
+  },
   {
     id: "dryfruits-100g-combo",
     name: "Dryfruits 100 Gram Combo",

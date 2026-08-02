@@ -25,7 +25,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           setIsLoaded(true);
           setTimeout(() => {
             onComplete();
-          }, 600); // Wait for fade-out and flash animations to finish
+          }, 600);
         }, 300);
       }
     }, intervalTime);
@@ -41,64 +41,53 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#FAFAFA] overflow-hidden"
         >
-          {/* Subtle background golden glow & particles */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,rgba(250,250,250,1)_70%)] pointer-events-none" />
+          {/* Subtle background golden glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.12)_0%,rgba(250,250,250,1)_70%)] pointer-events-none" />
 
-          {/* Floating sparks (Next Image optimized) */}
-          <div className="absolute inset-0 opacity-[0.02] mix-blend-screen pointer-events-none blur-[4px]">
-            <Image
-              src="/images/catalog/elachi cardamom.jpg"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-              priority
-            />
-          </div>
-
-          <div className="relative flex flex-col items-center justify-center">
-            {/* Circular Gold Loading Ring */}
-            <svg className="w-56 h-56 md:w-64 md:h-64 -rotate-90">
+          {/* Centered Ring + Centered Logo Container */}
+          <div className="relative flex items-center justify-center">
+            {/* Refined Gold Progress Ring */}
+            <svg className="w-52 h-52 sm:w-60 sm:h-60 md:w-68 md:h-68 -rotate-90">
               <circle
                 cx="50%"
                 cy="50%"
-                r="46%"
-                stroke="rgba(212, 175, 55, 0.1)"
-                strokeWidth="1.5"
+                r="44%"
+                stroke="rgba(212, 175, 55, 0.15)"
+                strokeWidth="2"
                 fill="transparent"
               />
               <motion.circle
                 cx="50%"
                 cy="50%"
-                r="46%"
+                r="44%"
                 stroke="#D4AF37"
-                strokeWidth="1.5"
+                strokeWidth="2"
                 fill="transparent"
-                strokeDasharray="290"
-                strokeDashoffset={290 - (290 * progress) / 100}
+                strokeDasharray="280"
+                strokeDashoffset={280 - (280 * progress) / 100}
                 className="transition-all duration-75 ease-out"
                 style={{
-                  filter: "drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.5))"
+                  filter: "drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.5))"
                 }}
               />
             </svg>
 
-            {/* Logo in center */}
+            {/* Official Centered Brand Logo */}
             <motion.div
-              initial={{ scale: 0.85, opacity: 0.5 }}
+              initial={{ scale: 0.9, opacity: 0.7 }}
               animate={{ 
-                scale: progress === 100 ? 1.05 : 0.95,
+                scale: progress === 100 ? 1.05 : 1,
                 opacity: 1 
               }}
               transition={{ duration: 0.5 }}
-              className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden relative"
+              className="absolute inset-0 m-auto w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 flex items-center justify-center"
             >
               <Image
                 src="/images/logo.png"
-                alt="Nactura Preloader"
+                alt="NACTURA"
                 fill
-                sizes="(max-width: 768px) 144px, 176px"
-                className="object-contain"
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 160px"
+                className="object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                 priority
               />
             </motion.div>
@@ -118,7 +107,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             </span>
           </motion.div>
 
-          {/* Flash Effect on Completion */}
+          {/* Completion Flash Effect */}
           {progress === 100 && (
             <motion.div
               initial={{ opacity: 0 }}
