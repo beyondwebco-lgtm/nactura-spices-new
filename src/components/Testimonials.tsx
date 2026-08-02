@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft } from "react-icons/fa";
 
@@ -26,23 +26,23 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startAutoPlay = () => {
+  const stopAutoPlay = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  }, []);
+
+  const startAutoPlay = useCallback(() => {
     stopAutoPlay();
     timerRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
-  };
-
-  const stopAutoPlay = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-  };
+  }, [stopAutoPlay]);
 
   useEffect(() => {
     startAutoPlay();
     return () => stopAutoPlay();
-  }, []);
+  }, [startAutoPlay, stopAutoPlay]);
 
   return (
     <section id="testimonials" className="relative py-32 overflow-hidden bg-[#FFFFFF]">
@@ -73,7 +73,7 @@ export default function Testimonials() {
               className="glass-panel p-8 md:p-12 text-center w-full relative bg-[#FAFAFA] rounded-2xl shadow-lg border border-[#D4AF37]/20"
             >
               <FaQuoteLeft className="text-[#D4AF37]/20 text-5xl md:text-6xl absolute top-6 left-6" />
-              
+
               <p className="text-lg md:text-xl text-[#0A321E]/80 italic leading-relaxed mb-8 relative z-10 font-medium">
                 &quot;{testimonials[activeIndex].quote}&quot;
               </p>

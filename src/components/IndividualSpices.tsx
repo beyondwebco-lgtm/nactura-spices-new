@@ -4,22 +4,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
+import { generateWhatsAppLink } from "@/utils/whatsapp";
 
-const spices = [
-  { name: "Cardamom", tamil: "ஏலக்காய்", aka: "Elaichi", price: "₹299", image: "/images/cardamom.jpeg" },
-  { name: "Black Pepper", tamil: "மிளகு", aka: "Pepper", price: "₹199", image: "/images/black_pepper_single.png" },
-  { name: "Cinnamon", tamil: "பட்டை", aka: "Pattai", price: "₹149", image: "/images/cinnamon_single.png" },
-  { name: "Clove", tamil: "கிராம்பு", aka: "Grambu", price: "₹349", image: "/images/cloves.jpeg" },
-  { name: "Honey Mixed Dry Fruits", tamil: "தேன் உலர் பழங்கள்", aka: "Dry Fruits Honey", price: "₹499", image: "/images/kismis.jpeg" },
-  { name: "Millet Laddus", tamil: "தினை லட்டு", aka: "Healthy Laddus", price: "₹199", image: "/images/millet_laddus.png" },
+const seedProducts = [
+  { name: "Chia Seeds", subtitle: "Wholesome Raw Chia", image: "/images/catalog/chia seeds.jpg" },
+  { name: "Pumpkin Seeds", subtitle: "Raw Green Pepitas", image: "/images/catalog/pumpkin seeds.jpg" },
+  { name: "Flax Seeds", subtitle: "Nutritious Brown Flax", image: "/images/catalog/flax seeds.jpg" },
+  { name: "Sunflower Seeds", subtitle: "Kernel Sunflower Seeds", image: "/images/catalog/sunflower seeds.jpg" },
+  { name: "Sabja Seeds", subtitle: "Cooling Basil Seeds", image: "/images/catalog/sabja seeds.jpg" },
+  { name: "Watermelon Seeds", subtitle: "Melon Seed Kernels", image: "/images/catalog/watermelon seeds.jpg" },
+  { name: "Cucumber Seeds", subtitle: "Crisp Melon Seeds", image: "/images/catalog/cucumber seeds.jpg" },
 ];
-
-function generateWhatsAppLink(spice: string) {
-  const msg = encodeURIComponent(
-    `Hello NACTURA,\n\nI'm interested in ordering\nProduct: ${spice}\nQuantity:\n\nPlease share the details.`
-  );
-  return `https://wa.me/918870107301?text=${msg}`;
-}
 
 export default function IndividualSpices() {
   const ref = useRef(null);
@@ -36,53 +32,59 @@ export default function IndividualSpices() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-medium block mb-4">
-            The Collection
+          <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
+            Daily Essentials
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-[#0A321E]">
-            Our <span className="text-gradient-gold">Premium</span> Selection
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-[#0A321E] font-bold">
+            Seeds & <span className="text-gradient-gold">Wellness Pantry</span>
           </h2>
-          <p className="text-[#0A321E]/70 text-sm tracking-wider max-w-lg mx-auto">
-            Each product handpicked from the finest plantations of Idukki, Kerala
+          <p className="text-[#0A321E]/70 text-sm tracking-wider max-w-lg mx-auto font-medium">
+            Wholesome seed varieties selected for natural crunch, texture, and daily nutrition.
           </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-5xl mx-auto">
-          {spices.map((spice, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {seedProducts.map((seed, i) => (
             <motion.div
-              key={spice.name}
+              key={seed.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.05 * i }}
-              onClick={() => window.open(generateWhatsAppLink(spice.name), "_blank")}
-              className="group cursor-pointer glass-panel p-6 md:p-8 text-center hover-gold-glow hover:border-[#D4AF37]/60 transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl shadow-sm"
+              onClick={() => window.open(generateWhatsAppLink(seed.name), "_blank")}
+              className="group cursor-pointer glass-panel p-6 text-center hover-gold-glow hover:border-[#D4AF37]/60 transition-all duration-500 hover:-translate-y-1 bg-white rounded-xl shadow-sm flex flex-col justify-between"
             >
-              <div className="relative w-full h-40 md:h-48 mb-6 overflow-hidden rounded-lg">
-                <Image
-                  src={spice.image}
-                  alt={spice.name}
-                  fill
-                  className="object-contain group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <h3 className="font-serif text-lg md:text-xl text-[#0A321E] mb-2 group-hover:text-[#D4AF37] transition-colors duration-300 font-bold">
-                {spice.name}
-              </h3>
-              <p className="text-xs text-[#0A321E]/60 tracking-wider">
-                {spice.aka}
-              </p>
-              <p className="text-xs text-[#0A321E]/40 mt-1">
-                {spice.tamil}
-              </p>
-              {/* Hover order hint */}
-              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-xs tracking-widest uppercase text-[#D4AF37] flex items-center justify-center gap-1 font-medium">
-                  <FaWhatsapp size={14} /> Order Now
+              <div>
+                <div className="relative w-full h-36 md:h-44 mb-4 overflow-hidden rounded-lg bg-[#FAFAFA]">
+                  <Image
+                    src={seed.image}
+                    alt={seed.name}
+                    fill
+                    className="object-contain p-2 group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <span className="text-[#D4AF37] text-[9px] tracking-widest uppercase font-bold block mb-1">
+                  {seed.subtitle}
                 </span>
+                <h3 className="font-serif text-base md:text-lg text-[#0A321E] group-hover:text-[#D4AF37] transition-colors duration-300 font-bold">
+                  {seed.name}
+                </h3>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#D4AF37]/20 flex items-center justify-center gap-1.5 text-xs tracking-widest uppercase text-[#D4AF37] font-bold">
+                <FaWhatsapp size={14} /> Enquire Now
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/collections?category=seeds"
+            className="inline-block px-8 py-3 border border-[#0A321E] text-[#0A321E] text-xs tracking-widest uppercase font-bold hover:bg-[#0A321E] hover:text-[#D4AF37] transition-all rounded-md"
+          >
+            Explore All Seeds &rarr;
+          </Link>
         </div>
       </div>
     </section>

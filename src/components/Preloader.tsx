@@ -43,11 +43,11 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
         >
           {/* Subtle background golden glow & particles */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.08)_0%,rgba(250,250,250,1)_70%)] pointer-events-none" />
-          
+
           {/* Floating sparks (Next Image optimized) */}
           <div className="absolute inset-0 opacity-[0.02] mix-blend-screen pointer-events-none blur-[4px]">
             <Image
-              src="/images/spices_combo.png"
+              src="/images/catalog/elachi cardamom.jpg"
               alt=""
               fill
               sizes="100vw"
@@ -91,13 +91,15 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
                 opacity: 1 
               }}
               transition={{ duration: 0.5 }}
-              className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden"
+              className="absolute w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden relative"
             >
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="Nactura Preloader"
-                className="object-contain w-full h-full"
-                loading="eager"
+                fill
+                sizes="(max-width: 768px) 144px, 176px"
+                className="object-contain"
+                priority
               />
             </motion.div>
           </div>

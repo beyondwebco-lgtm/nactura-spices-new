@@ -2,24 +2,52 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
+import { generateWhatsAppLink } from "@/utils/whatsapp";
 
-function generateWhatsAppLink(product: string) {
-  const msg = encodeURIComponent(
-    `Hello NACTURA,\n\nI'm interested in ordering\nProduct: ${product}\nQuantity:\n\nPlease share the details.`
-  );
-  return `https://wa.me/918870107301?text=${msg}`;
-}
+const featuredItems = [
+  {
+    id: "elachi-cardamom",
+    name: "Elachi Cardamom",
+    subtitle: "Aromatic Green Pods",
+    description: "Fragrant whole green cardamom pods, carefully selected for intense natural aroma and rich essential oil content.",
+    image: "/images/catalog/elachi cardamom.jpg",
+    tag: "Estate Fresh",
+  },
+  {
+    id: "cashew",
+    name: "Cashew",
+    subtitle: "Rich Creamy Cashews",
+    description: "Plump cashew nuts offering a smooth, buttery texture and sweet crunch.",
+    image: "/images/catalog/cashew.jpg",
+    tag: "Jumbo Grade",
+  },
+  {
+    id: "cinnamon-ceylon",
+    name: "Cinnamon Ceylon",
+    subtitle: "True Soft Cinnamon",
+    description: "Delicate, multi-layered Ceylon cinnamon quills with a refined, subtle aroma.",
+    image: "/images/catalog/cinnamon silon.jpg",
+    tag: "Pure Ceylon",
+  },
+  {
+    id: "chia-seeds",
+    name: "Chia Seeds",
+    subtitle: "Wholesome Raw Chia Seeds",
+    description: "Clean, raw chia seeds that swell gracefully when soaked in liquids.",
+    image: "/images/catalog/chia seeds.jpg",
+    tag: "Superfood",
+  },
+];
 
 export default function FeaturedSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-32 md:py-44 overflow-hidden">
-      {/* Luxury background */}
-      <div className="absolute inset-0 bg-[#FFFFFF]" />
+    <section ref={ref} className="relative py-32 md:py-44 overflow-hidden bg-[#FAFAFA]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/10 rounded-full blur-[250px]" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -30,152 +58,70 @@ export default function FeaturedSection() {
           className="text-center mb-20"
         >
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
-            Signature Combos
+            Curated Highlights
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4">
-            Two Exclusive <span className="text-gradient-gold font-bold">Combos</span>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-4 text-[#0A321E] font-bold">
+            Featured <span className="text-gradient-gold">Collection</span>
           </h2>
-          <p className="text-[#0A321E]/60 font-serif italic text-lg font-medium">
-            One Premium Experience
+          <p className="text-[#0A321E]/70 text-sm md:text-base max-w-xl mx-auto font-medium">
+            Hand-selected highlights from our new estate catalog
           </p>
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-6" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          {/* Spices Combo */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-[#FAFAFA] rounded-2xl shadow-lg border border-[#D4AF37]/20"
-          >
-            <div className="relative w-full h-80 overflow-hidden">
-              <Image
-                src="/images/12 premium spices 2.jpeg"
-                alt="12 Premium Spices Combo"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/10 to-transparent" />
-              
-              {/* Floating tag */}
-              <div className="absolute top-5 left-5 px-4 py-2 bg-[#D4AF37] text-white text-[10px] tracking-widest uppercase font-bold rounded-md">
-                Best Seller
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {featuredItems.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15 * i }}
+              className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-white rounded-xl shadow-sm border border-[#D4AF37]/20 flex flex-col justify-between"
+            >
+              <div className="relative w-full h-56 bg-[#FAFAFA] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#D4AF37] text-white text-[8px] tracking-widest uppercase font-bold rounded">
+                  {item.tag}
+                </div>
               </div>
-            </div>
 
-            <div className="p-8 md:p-10">
-              <h3 className="font-serif text-3xl text-[#0A321E] mb-2 font-bold">
-                12 Premium Spices
-              </h3>
-              <p className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-                Handpicked Collection
-              </p>
-              <p className="text-[#0A321E]/80 text-sm leading-relaxed mb-6 font-medium">
-                12 powerful spices, 1 perfect combo. Cardamom, black pepper, cinnamon,
-                clove, star anise, nutmeg flower, poppy seeds, bay leaf, dry ginger,
-                kapok bud, nutmeg, and cumin — all in one premium box.
-              </p>
+              <div className="p-6 flex flex-col flex-grow justify-between">
+                <div>
+                  <span className="text-[#D4AF37] text-[10px] tracking-widest uppercase font-bold block mb-1">
+                    {item.subtitle}
+                  </span>
+                  <h3 className="font-serif text-xl text-[#0A321E] font-bold mb-2">
+                    {item.name}
+                  </h3>
+                  <p className="text-xs text-[#0A321E]/70 leading-relaxed line-clamp-3 mb-6 font-medium">
+                    {item.description}
+                  </p>
+                </div>
 
-              {/* Weight Grid */}
-              <div className="grid grid-cols-3 gap-3 mb-8">
-                {["25g", "50g", "100g"].map((w) => (
-                  <div
-                    key={w}
-                    className="text-center py-4 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
+                <div className="space-y-2">
+                  <button
+                    onClick={() => window.open(generateWhatsAppLink(item.name), "_blank")}
+                    className="w-full flex items-center justify-center gap-2 py-3 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md cursor-pointer"
                   >
-                    <div className="text-[#0A321E] font-serif text-lg font-bold">
-                      {w}
-                    </div>
-                    <div className="text-[#0A321E]/60 text-[10px] tracking-wider uppercase font-bold mt-1">
-                      Combo Pack
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() =>
-                  window.open(
-                    generateWhatsAppLink("12 Premium Spices Combo"),
-                    "_blank"
-                  )
-                }
-                className="w-full flex items-center justify-center gap-3 py-4 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md"
-              >
-                <FaWhatsapp size={18} />
-                Order Spices Combo
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Dry Fruits Combo */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-[#FAFAFA] rounded-2xl shadow-lg border border-[#D4AF37]/20"
-          >
-            <div className="relative w-full h-80 overflow-hidden">
-              <Image
-                src="/images/7 premium dry fruits.jpeg"
-                alt="7 Premium Dry Fruits Combo"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/10 to-transparent" />
-              
-              <div className="absolute top-5 left-5 px-4 py-2 bg-[#D4AF37] text-white text-[10px] tracking-widest uppercase font-bold rounded-md">
-                Premium
-              </div>
-            </div>
-
-            <div className="p-8 md:p-10">
-              <h3 className="font-serif text-3xl text-[#0A321E] mb-2 font-bold">
-                7 Premium Dry Fruits
-              </h3>
-              <p className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-                Nutritious Selection
-              </p>
-              <p className="text-[#0A321E]/80 text-sm leading-relaxed mb-6 font-medium">
-                7 nutritious dry fruits, 1 ultimate combo. Jumbo cashews, golden
-                almonds, whole walnuts, medjool dates, green pistachios, raisins,
-                and dried apricots — premium quality guaranteed.
-              </p>
-
-              {/* Weight Grid */}
-              <div className="grid grid-cols-3 gap-3 mb-8">
-                {["100g", "250g", "500g"].map((w) => (
-                  <div
-                    key={w}
-                    className="text-center py-4 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-colors duration-300 rounded-md bg-white shadow-sm hover:shadow-md"
+                    <FaWhatsapp size={14} />
+                    Enquire
+                  </button>
+                  <Link
+                    href={`/collections?category=all`}
+                    className="block text-center text-[10px] text-[#0A321E]/60 tracking-wider uppercase hover:text-[#D4AF37] transition-colors py-1 font-bold"
                   >
-                    <div className="text-[#0A321E] font-serif text-lg font-bold">
-                      {w}
-                    </div>
-                    <div className="text-[#0A321E]/60 text-[10px] tracking-wider uppercase font-bold mt-1">
-                      Combo Pack
-                    </div>
-                  </div>
-                ))}
+                    View in Catalog &rarr;
+                  </Link>
+                </div>
               </div>
-
-              <button
-                onClick={() =>
-                  window.open(
-                    generateWhatsAppLink("7 Premium Dry Fruits Combo"),
-                    "_blank"
-                  )
-                }
-                className="w-full flex items-center justify-center gap-3 py-4 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md"
-              >
-                <FaWhatsapp size={18} />
-                Order Dry Fruits Combo
-              </button>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

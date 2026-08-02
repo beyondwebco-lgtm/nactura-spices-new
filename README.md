@@ -21,7 +21,7 @@ Sourced from the plantations of Idukki, Kerala, this website reflects the premiu
 
 ## Getting Started
 
-First, run the development server:
+First, run the development server: then 
 
 ```bash
 npm run dev

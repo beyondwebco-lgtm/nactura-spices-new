@@ -2,46 +2,51 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useInView, Variants } from "framer-motion";
-import { FaWhatsapp } from "react-icons/fa";
 
 const categories = [
   {
-    title: "Premium Spice Combos",
-    subtitle: "12 Handpicked Varieties",
-    description: "A curated collection of 12 premium spices sourced directly from the hills of Idukki. Each spice is handpicked for maximum aroma and purity.",
-    image: "/images/12 premium spices.jpeg",
-    tag: "Best Seller",
+    id: "spices",
+    title: "Estate Spices",
+    subtitle: "15 Handpicked Varieties",
+    description: "Pure green cardamom, black pepper, cinnamon varieties, cloves, star anise, nutmeg, and regional aromatics sourced directly from estate harvesters.",
+    image: "/images/catalog/elachi cardamom.jpg",
+    tag: "Estate Fresh",
   },
   {
-    title: "Premium Dry Fruits",
-    subtitle: "7 Exquisite Selections",
-    description: "Jumbo cashews, golden almonds, whole walnuts, dates, pistachios, raisins, and apricots — each one selected for unmatched quality.",
-    image: "/images/premium dry fruits.jpeg",
-    tag: "Premium",
+    id: "dryfruits",
+    title: "Dry & Dried Fruits",
+    subtitle: "16 Exquisite Selections",
+    description: "Almonds, cashews, figs, dates, pistachios, raisins, dried berries, kiwi, dried gooseberry, mango slices, and dehydrated pineapple rings.",
+    image: "/images/catalog/badam.jpg",
+    tag: "Nutritious",
   },
   {
-    title: "Wild Forest Honey",
-    subtitle: "Pure & Unfiltered",
-    description: "Raw organic wild forest honey, single-source and unprocessed. Experience the golden nectar of nature in its purest form.",
-    image: "/images/honey.png",
-    tag: "Organic",
+    id: "seeds",
+    title: "Seeds & Pantry",
+    subtitle: "7 Wholesome Varieties",
+    description: "Chia seeds, flax seeds, pumpkin seeds, sunflower seeds, sabja, cucumber, and watermelon seeds for daily wholesome crunch.",
+    image: "/images/catalog/chia seeds.jpg",
+    tag: "Superfood",
   },
   {
-    title: "Millet Laddus",
-    subtitle: "7 Healthy Varieties",
-    description: "Artisan organic millet laddus — a perfect blend of health and taste. No refined sugar, no preservatives, only wholesome goodness.",
-    image: "/images/millet_laddus.png",
-    tag: "Healthy",
+    id: "honey-tea",
+    title: "Nactura Honey & Tea",
+    subtitle: "Nectar & Leaf",
+    description: "Unfiltered forest honey and aromatic plantation tea leaves, crafted to bring pure natural warmth and aroma to your cup.",
+    image: "/images/catalog/nactura honey.jpg",
+    tag: "Signature",
+  },
+  {
+    id: "combos",
+    title: "Curated Combos",
+    subtitle: "10 Selection Boxes",
+    description: "Thoughtfully assembled spice boxes, dry fruit gift packs, berry mixes, and 1kg seed blends tailored for every home.",
+    image: "/images/catalog/Premium Spices 100 Gram Combo.jpg",
+    tag: "Best Value",
   },
 ];
-
-function generateWhatsAppLink(product: string) {
-  const msg = encodeURIComponent(
-    `Hello NACTURA,\n\nI'm interested in ordering\nProduct: ${product}\nQuantity:\n\nPlease share the details.`
-  );
-  return `https://wa.me/918870107301?text=${msg}`;
-}
 
 const containerVariants: Variants = {
   hidden: {},
@@ -74,9 +79,7 @@ export default function ProductCategories() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="collections" ref={ref} className="relative py-32 md:py-44 overflow-hidden">
-      <div className="absolute inset-0 bg-[#FFFFFF]" />
-      
+    <section id="collections" ref={ref} className="relative py-32 md:py-44 overflow-hidden bg-white">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4AF37]/10 rounded-full blur-[200px]" />
 
@@ -88,10 +91,10 @@ export default function ProductCategories() {
           className="text-center mb-24 max-w-3xl mx-auto"
         >
           <span className="text-[#D4AF37] text-xs tracking-[0.4em] uppercase font-bold block mb-4">
-            Our Collections
+            Our Categories
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6 text-[#0A321E] leading-tight font-bold flex flex-wrap justify-center gap-x-3">
-            {"Discover Our Collection".split(" ").map((word, i) => (
+            {"Explore Our Collections".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 variants={wordVariants}
@@ -101,8 +104,8 @@ export default function ProductCategories() {
               </motion.span>
             ))}
           </h2>
-          <p className="text-[#0A321E]/75 text-sm md:text-base leading-relaxed tracking-wider mb-8 max-w-xl mx-auto flex flex-wrap justify-center gap-x-2">
-            {"Crafted with premium ingredients, roasted to perfection, and designed for every craving.".split(" ").map((word, i) => (
+          <p className="text-[#0A321E]/75 text-sm md:text-base leading-relaxed tracking-wider mb-8 max-w-xl mx-auto flex flex-wrap justify-center gap-x-2 font-medium">
+            {"Handpicked spices, crisp dry fruits, wholesome seeds, wild honey, and curated combos.".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 variants={wordVariants}
@@ -115,14 +118,14 @@ export default function ProductCategories() {
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {categories.map((cat, i) => (
             <motion.div
-              key={cat.title}
+              key={cat.id}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 + i * 0.15 }}
-              className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-[#FAFAFA] rounded-xl shadow-lg border border-[#D4AF37]/20"
+              transition={{ duration: 0.8, delay: 0.15 * i }}
+              className="group relative glass-panel overflow-hidden hover-gold-glow transition-all duration-700 bg-[#FAFAFA] rounded-xl shadow-lg border border-[#D4AF37]/20 flex flex-col justify-between"
             >
               {/* Tag */}
               <div className="absolute top-5 right-5 z-20 px-4 py-1.5 bg-[#D4AF37] text-white text-[10px] tracking-widest uppercase font-bold rounded-md">
@@ -130,35 +133,36 @@ export default function ProductCategories() {
               </div>
 
               {/* Image */}
-              <div className="relative w-full h-72 overflow-hidden">
+              <div className="relative w-full h-64 overflow-hidden bg-white">
                 <Image
                   src={cat.image}
                   alt={cat.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-contain p-6 group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-[#FAFAFA]/10 to-transparent" />
               </div>
 
               {/* Content */}
-              <div className="p-6 sm:p-8">
-                <p className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold mb-2">
-                  {cat.subtitle}
-                </p>
-                <h3 className="font-serif text-2xl md:text-3xl text-[#0A321E] mb-4 font-bold">
-                  {cat.title}
-                </h3>
-                <p className="text-[#0A321E]/80 text-sm leading-relaxed mb-6 font-medium">
-                  {cat.description}
-                </p>
-                <button
-                  onClick={() => window.open(generateWhatsAppLink(cat.title), "_blank")}
-                  className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md"
+              <div className="p-6 sm:p-8 flex flex-col flex-grow justify-between">
+                <div>
+                  <p className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase font-bold mb-2">
+                    {cat.subtitle}
+                  </p>
+                  <h3 className="font-serif text-2xl text-[#0A321E] mb-3 font-bold">
+                    {cat.title}
+                  </h3>
+                  <p className="text-[#0A321E]/80 text-xs leading-relaxed mb-6 font-medium">
+                    {cat.description}
+                  </p>
+                </div>
+                <Link
+                  href={`/collections?category=${cat.id}`}
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#0A321E] text-[#D4AF37] text-xs tracking-widest uppercase font-bold hover:bg-[#D4AF37] hover:text-white transition-all duration-500 rounded-md"
                 >
-                  <FaWhatsapp size={16} />
-                  Order on WhatsApp
-                </button>
+                  Explore Category &rarr;
+                </Link>
               </div>
             </motion.div>
           ))}
