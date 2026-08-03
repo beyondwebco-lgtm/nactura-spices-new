@@ -9,9 +9,11 @@ export default function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const phoneNumbers = ["8870107301", "7010432123"];
-  const address = "142/E, Ajith Complex, Estate Poopara, Village office junction, Idukki, Poopara, 685619";
+  const address1 = "No 38, Vetri Vinayagar Street, Near SS Hospital, Ganapathima Nagar, Coimbatore – 641006";
+  const address2 = "142/E, Ajith Complex, Estate Poopara, Village office junction, Idukki, Poopara, 685619";
 
-  const googleMapsLink = "https://maps.google.com/?q=" + encodeURIComponent(address);
+  const googleMapsLink1 = "https://maps.google.com/?q=" + encodeURIComponent(address1);
+  const googleMapsLink2 = "https://maps.google.com/?q=" + encodeURIComponent(address2);
   const waLink = "https://wa.me/918870107301?text=" + encodeURIComponent("Hello NACTURA,\n\nI'm interested in ordering some spices/dry fruits. Please share details.");
 
   return (
@@ -48,11 +50,22 @@ export default function ContactSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="font-serif text-lg text-[#0A321E] mb-3 flex items-center gap-2 font-bold">
-                  <FaMapMarkerAlt size={16} /> Location
+                  <FaMapMarkerAlt size={16} /> Locations
                 </h3>
-                <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium">
-                  {address}
-                </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Coimbatore Office (Registered Office)</span>
+                    <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium">
+                      {address1}
+                    </p>
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Idukki Office (Processing Unit)</span>
+                    <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium">
+                      {address2}
+                    </p>
+                  </div>
+                </div>
               </div>
               
               <div>
@@ -91,10 +104,17 @@ export default function ContactSection() {
               </a>
 
               <button
-                onClick={() => window.open(googleMapsLink, "_blank")}
+                onClick={() => window.open(googleMapsLink1, "_blank")}
                 className="w-full py-4 border border-[#0A321E]/20 text-[#0A321E]/70 text-xs tracking-widest uppercase font-bold hover:border-[#0A321E] hover:text-[#0A321E] transition-all duration-500 rounded-md"
               >
-                Google Maps Directions
+                Directions (Coimbatore)
+              </button>
+
+              <button
+                onClick={() => window.open(googleMapsLink2, "_blank")}
+                className="w-full py-4 border border-[#0A321E]/20 text-[#0A321E]/70 text-xs tracking-widest uppercase font-bold hover:border-[#0A321E] hover:text-[#0A321E] transition-all duration-500 rounded-md"
+              >
+                Directions (Idukki)
               </button>
             </div>
           </div>
