@@ -54,13 +54,13 @@ export default function ContactSection() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Coimbatore Office (Registered Office)</span>
+                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Coimbatore Office</span>
                     <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium">
                       {address1}
                     </p>
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Idukki Office (Processing Unit)</span>
+                    <span className="text-xs font-bold text-[#D4AF37] block mb-1">Idukki Office</span>
                     <p className="text-sm text-[#0A321E]/80 leading-relaxed font-medium">
                       {address2}
                     </p>
