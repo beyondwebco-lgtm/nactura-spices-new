@@ -9,7 +9,7 @@ export default function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const phoneNumbers = ["8870107301", "7010432123"];
-  const address = "No 38, Vetri Vinayagar Street, Near SS Hospital, Ganapathima Nagar, Coimbatore – 641006";
+  const address = "142/E, Ajith Complex, Estate Poopara, Village office junction, Idukki, Poopara, 685619";
 
   const googleMapsLink = "https://maps.google.com/?q=" + encodeURIComponent(address);
   const waLink = "https://wa.me/918870107301?text=" + encodeURIComponent("Hello NACTURA,\n\nI'm interested in ordering some spices/dry fruits. Please share details.");
